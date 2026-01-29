@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet 1 - Portfolio Sani ASLAM</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Prism.js + thème VS Code Dark+ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PrismJS/prism-themes@1.9.0/themes/prism-vsc-dark-plus.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-html.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+
+    <style>
+
+        /* ===== CSS Intégré pour Projet ===== */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #131212;
+            color: #ffffff;
+        }
+
+        .project-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h1.big {
+            font-size: 80px;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffc107;
+        }
+
+        p.intro {
+            font-size: 16px;
+            line-height: 1.7;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        .project-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .project-text, .project-code {
+            flex: 1;
+            min-width: 350px;
+            max-height: 600px; /* hauteur fixe pour scroll si nécessaire */
+            border-radius: 10px;
+        }
+
+        .project-text {
+            background: #ffffff;
+            color: #000;
+            padding: 40px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            overflow-y: auto; /* scroll si le contenu dépasse */
+        }
+
+        .project-text img {
+            max-width: 100%;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .project-code {
+            background: #1e1e1e;
+            color: #fff;
+            padding: 40px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            overflow-y: auto; /* scroll vertical */
+            overflow-x: auto; /* scroll horizontal */
+        }
+
+        .project-code pre {
+            white-space: pre;
+            word-wrap: break-word;
+            margin: 0;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .project-btn {
+            display: inline-block;
+            text-align: center;
+            padding: 12px 30px;
+            background: #ffc107;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .project-btn:hover {
+            background: #e65c00;
+        }
+
+        /* Style pour les icônes Flaticon / Font Awesome */
+        .icon i {
+            font-size: 50px;
+            color: #F96D00;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .icon i:hover {
+            transform: scale(1.2);
+        }
+
+        @media(max-width:768px){
+            .project-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="project-container">
+    <h1 class="big style="color: white; onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color='white'">Portfolio ASLAM Sani</h1>
+    <h2>Projet 4</h2>
+    <p class="intro">Ce site que vous êtes en train de visiter présente mes compétences et projets réalisés au cours de ma première année de BTS SIO SLAM.</p>
+
+    <div class="project-row">
+        <div class="project-text"> 
+            <h3>Description</h3>
+            <p>Ce projet a été conçu et personnalisé pour montrer de manière claire et simple, elle rassemble mes travaux et projets réalisés cette année et sera mise à jour à chaque nouvelle réalisation.</p>
+            <!-- <img src="images/project1.jpg" alt="Screenshot du projet 1"> -->
+            <p>Le portfolio a été pensée pour être lisible et agréable à parcourir, afin de présenter mon parcours de manière structurée. 
+          Les couleurs, les images et la mise en page ont été adaptées pour refléter mon style personnel tout en conservant une présentation cohérente et professionnelle. 
+          Même si la structure initiale s’inspire d’une template préexistante, tout a été ajusté et personnalisé pour correspondre à mes besoins et montrer mon savoir-faire.</p>
+        </div>
+
+        <div class="project-code">
+    <h3>Extrait du code index.html</h3>
+    <pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+  &lt;head&gt;
+    &lt;title&gt;Portfolio ASLAM Sani&lt;/title&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+
+    &lt;link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet"&gt;
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;
+    &lt;link rel="stylesheet" href="css/open-iconic-bootstrap.min.css"&gt;
+    &lt;link rel="stylesheet" href="css/animate.css"&gt;
+    &lt;link rel="stylesheet" href="css/owl.carousel.min.css"&gt;
+    &lt;link rel="stylesheet" href="css/owl.theme.default.min.css"&gt;
+    &lt;link rel="stylesheet" href="css/magnific-popup.css"&gt;
+    &lt;link rel="stylesheet" href="css/aos.css"&gt;
+    &lt;link rel="stylesheet" href="css/ionicons.min.css"&gt;
+    &lt;link rel="stylesheet" href="css/flaticon.css"&gt;
+    &lt;link rel="stylesheet" href="css/icomoon.css"&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+  &lt;/head&gt;
+
+  &lt;body data-spy="scroll" data-target=".site-navbar-target" data-offset="300"&gt;
+
+    &lt;!-- NAVBAR --&gt;
+    &lt;nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar"&gt;
+      &lt;div class="container"&gt;
+        &lt;a class="navbar-brand" href="index.html"&gt;Sani ASLAM&lt;/a&gt;
+        &lt;button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav"&gt;
+          &lt;span class="oi oi-menu"&gt;&lt;/span&gt; Menu
+        &lt;/button&gt;
+        &lt;div class="collapse navbar-collapse" id="ftco-nav"&gt;
+          &lt;ul class="navbar-nav nav ml-auto"&gt;
+            &lt;li class="nav-item"&gt;&lt;a href="#about-section" class="nav-link"&gt;&lt;span&gt;Profil&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="nav-item"&gt;&lt;a href="#resume-section" class="nav-link"&gt;&lt;span&gt;Loisirs&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="nav-item"&gt;&lt;a href="#services-section" class="nav-link"&gt;&lt;span&gt;Projets&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="nav-item"&gt;&lt;a href="#language-section" class="nav-link"&gt;&lt;span&gt;Langues&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="nav-item"&gt;&lt;a href="#diplome-section" class="nav-link"&gt;&lt;span&gt;Diplômes&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="nav-item"&gt;&lt;a href="#Outils-section" class="nav-link"&gt;&lt;span&gt;Outils&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="nav-item"&gt;&lt;a href="#blog-section" class="nav-link"&gt;&lt;span&gt;My Blog&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="nav-item"&gt;&lt;a href="#contact-section" class="nav-link"&gt;&lt;span&gt;Contact&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;!-- ABOUT --&gt;
+    &lt;section class="ftco-about img ftco-section ftco-no-pb" id="about-section"&gt;
+      &lt;div class="container"&gt;
+        &lt;div class="row d-flex"&gt;
+          &lt;div class="col-md-6 col-lg-5 d-flex"&gt;
+            &lt;div class="img-about img d-flex align-items-stretch"&gt;
+              &lt;div class="overlay"&gt;&lt;/div&gt;
+              &lt;div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/nomdelaphoto);"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-md-6 col-lg-7 pl-lg-5 pb-5"&gt;
+            &lt;div class="row justify-content-start pb-3"&gt;
+              &lt;div class="col-md-12 heading-section ftco-animate"&gt;
+                &lt;h2 class="mb-4"&gt;ASLAM Sani&lt;/h2&gt;
+                &lt;p&gt;Actuellement étudiant en première année de BTS SIO, option SLAM, je recherche activement un stage en informatique du 18 mai au 27 juin 2026, afin de mettre en pratique mes connaissances en développement et d’acquérir une première expérience professionnelle.&lt;/p&gt;
+                &lt;ul class="about-info mt-4 px-md-0 px-2"&gt;
+                  &lt;li class="d-flex"&gt;&lt;span&gt;Nom:&lt;/span&gt; &lt;span&gt;ASLAM Sani&lt;/span&gt;&lt;/li&gt;
+                  &lt;li class="d-flex"&gt;&lt;span&gt;Naissance:&lt;/span&gt; &lt;span&gt;Juillet 22, 2006&lt;/span&gt;&lt;/li&gt;
+                  &lt;li class="d-flex"&gt;&lt;span&gt;Addresse:&lt;/span&gt; &lt;span&gt;Valenton, 94460 ile de france&lt;/span&gt;&lt;/li&gt;
+                  &lt;li class="d-flex"&gt;&lt;span&gt;Email:&lt;/span&gt; &lt;span&gt;sani.aslam2006@gmail.com&lt;/span&gt;&lt;/li&gt;
+                  &lt;li class="d-flex"&gt;&lt;span&gt;GitHub:&lt;/span&gt; &lt;span&gt;https://github.com/SaniAslam&lt;/span&gt;&lt;/li&gt;
+                  &lt;li class="d-flex"&gt;&lt;span&gt;Téléphone:&lt;/span&gt; &lt;span&gt;07 49 90 12 36&lt;/span&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- RESUME / LOISIRS --&gt;
+    &lt;section class="ftco-section ftco-no-pb" id="resume-section"&gt;
+      &lt;div class="container"&gt;
+        &lt;div class="row justify-content-center pb-5"&gt;
+          &lt;div class="col-md-10 heading-section text-center ftco-animate"&gt;
+            &lt;h1 class="big big-2"&gt;&lt;/h1&gt;
+            &lt;h2 class="mb-4"&gt;Apprendre a me conaître&lt;/h2&gt;
+            &lt;p&gt;Passionné par l’informatique et le multimédia depuis mon plus jeune âge, j’aime découvrir et apprendre de nouvelles compétences.&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="row"&gt;
+          &lt;div class="col-md-6"&gt;
+            &lt;div class="resume-wrap ftco-animate"&gt;
+              &lt;span class="date"&gt;Jeux Vidéo&lt;/span&gt;
+              &lt;p class="mt-4"&gt;Le jeu vidéo fait partie de mes passions depuis de nombreuses années, me permettant de développer ma créativité, mon sens de la stratégie et mes capacités de résolution de problèmes à travers des expériences interactives.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="resume-wrap ftco-animate"&gt;
+              &lt;span class="date"&gt;Musique&lt;/span&gt;
+              &lt;p class="mt-4"&gt;La musique accompagne mon quotidien depuis de nombreuses années, m’offrant une source d’inspiration, de détente et de motivation à travers des univers sonores variés, et depuis peu, je m’essaie également à la pratique du piano.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="resume-wrap ftco-animate"&gt;
+              &lt;span class="date"&gt;Culture asiatique&lt;/span&gt;
+              &lt;p class="mt-4"&gt;La culture asiatique, notamment japonaise et coréenne, constitue un centre d’intérêt majeur pour moi, et la japanimation en est l’une des expressions qui nourrit mon imagination et ma créativité.&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class="col-md-6"&gt;
+            &lt;div class="resume-wrap ftco-animate"&gt;
+              &lt;span class="date"&gt;Programmation&lt;/span&gt;
+              &lt;p class="mt-4"&gt;La programmation constitue un centre d’intérêt central dans mon parcours, en lien direct avec ma formation, et j’ai toujours apprécié découvrir, pratiquer et expérimenter dans ce domaine.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="resume-wrap ftco-animate"&gt;
+              &lt;span class="date"&gt;Montage photo et vidéo&lt;/span&gt;
+              &lt;p class="mt-4"&gt;Le montage photo et vidéo représente pour moi un centre d’intérêt créatif que je pratique à un niveau débutant, me permettant de développer progressivement mes compétences visuelles et mon sens de la narration.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="resume-wrap ftco-animate"&gt;
+              &lt;span class="date"&gt;Nouvelles technologies&lt;/span&gt;
+              &lt;p class="mt-4"&gt;Je suis passionné par les nouvelles technologies et les innovations qui transforment notre quotidien. Curieux, j’aime explorer leur fonctionnement, découvrir les objets connectés et interfaces immersives, et réfléchir à la manière dont elles peuvent améliorer nos loisirs et notre vie quotidienne.&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="row justify-content-center mt-5"&gt;
+          &lt;div class="col-md-6 text-center ftco-animate"&gt;
+            &lt;p&gt;&lt;a href="#" class="btn btn-primary py-4 px-5"&gt;Download CV&lt;/a&gt;&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- PROJETS --&gt;
+    &lt;section class="ftco-section" id="services-section"&gt;
+      &lt;div class="container"&gt;
+        &lt;div class="row justify-content-center py-5 mt-5"&gt;
+          &lt;div class="col-md-12 heading-section text-center ftco-animate"&gt;
+            &lt;h1 class="big big-2"&gt;PROJETS&lt;/h1&gt;
+            &lt;h2 class="mb-4"&gt;Projets&lt;/h2&gt;
+            &lt;p&gt;Exemples de projets réalisés pour mettre en pratique les compétences acquises.&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="row"&gt;
+          &lt;div class="col-md-4 text-center d-flex ftco-animate"&gt;
+            &lt;a href="html/projet1.html" class="services-1"&gt;
+              &lt;span class="icon"&gt;&lt;i class="fa-solid fa-calculator"&gt;&lt;/i&gt;&lt;/span&gt;
+              &lt;div class="desc"&gt;
+                &lt;h3 class="mb-5"&gt;Calculatrice&lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class="col-md-4 text-center d-flex ftco-animate"&gt;
+            &lt;a href="html/projet2.html" class="services-1"&gt;
+              &lt;span class="icon"&gt;&lt;i class="fa-solid fa-hotel"&gt;&lt;/i&gt;&lt;/span&gt;
+              &lt;div class="desc"&gt;
+                &lt;h3 class="mb-5"&gt;Hôtel&lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class="col-md-4 text-center d-flex ftco-animate"&gt;
+            &lt;a href="html/projet3.html" class="services-1"&gt;
+              &lt;span class="icon"&gt;&lt;i class="fa-solid fa-code"&gt;&lt;/i&gt;&lt;/span&gt;
+              &lt;div class="desc"&gt;
+                &lt;h3 class="mb-5"&gt;Python&lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+
+          &lt;div class="col-md-4 text-center d-flex ftco-animate"&gt;
+            &lt;a href="html/projet4.html" class="services-1"&gt;
+              &lt;span class="icon"&gt;&lt;i class="fa-regular fa-address-card"&gt;&lt;/i&gt;&lt;/span&gt;
+              &lt;div class="desc"&gt;
+                &lt;h3 class="mb-5"&gt;Portfolio&lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+
+          &lt;div class="col-md-4 text-center d-flex ftco-animate"&gt;
+            &lt;a href="html/projet5.html" class="services-1"&gt;
+              &lt;span class="icon"&gt;&lt;i class="fa-solid fa-spinner"&gt;&lt;/i&gt;&lt;/span&gt;
+              &lt;div class="desc"&gt;
+                &lt;h3 class="mb-5"&gt;En cours&lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+
+          &lt;div class="col-md-4 text-center d-flex ftco-animate"&gt;
+            &lt;a href="html/projet6.html" class="services-1"&gt;
+              &lt;span class="icon"&gt;&lt;i class="fa-solid fa-spinner"&gt;&lt;/i&gt;&lt;/span&gt;
+              &lt;div class="desc"&gt;
+                &lt;h3 class="mb-5"&gt;En cours&lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+&lt;!-- LANGUES --&gt;
+    &lt;section class="ftco-section" id="language-section"&gt;
+      &lt;div class="container"&gt;
+        &lt;div class="row justify-content-center pb-5"&gt;
+          &lt;div class="col-md-12 heading-section text-center ftco-animate"&gt;
+            &lt;h1 class="big big-2"&gt;LANGUES&lt;/h1&gt;
+            &lt;h2 class="mb-4"&gt;Langues&lt;/h2&gt;
+            &lt;p&gt;Les langues occupent une place importante dans mon parcours, me permettant de communiquer et de m’ouvrir à différents environnements culturels.&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="row"&gt;
+          &lt;div class="col-md-6 animate-box"&gt;
+            &lt;div class="progress-wrap ftco-animate"&gt;
+              &lt;h3&gt;Français — Parlé couramment&lt;/h3&gt;
+              &lt;div class="progress"&gt;
+                &lt;div class="progress-bar color-1" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:100%"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-md-6 animate-box"&gt;
+            &lt;div class="progress-wrap ftco-animate"&gt;
+              &lt;h3&gt;Anglais — C1+&lt;/h3&gt;
+              &lt;div class="progress"&gt;
+                &lt;div class="progress-bar color-2" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-md-6 animate-box"&gt;
+            &lt;div class="progress-wrap ftco-animate"&gt;
+              &lt;h3&gt;Espagnol — A2&lt;/h3&gt;
+              &lt;div class="progress"&gt;
+                &lt;div class="progress-bar color-3" role="progressbar" aria-valuenow="37" aria-valuemin="0" aria-valuemax="100" style="width:37%"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-md-6 animate-box"&gt;
+            &lt;div class="progress-wrap ftco-animate"&gt;
+              &lt;h3&gt;Coréen — Débutant&lt;/h3&gt;
+              &lt;div class="progress"&gt;
+                &lt;div class="progress-bar color-4" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- DIPLÔMES --&gt;
+    &lt;section class="ftco-section" id="diplome-section"&gt;
+      &lt;div class="container"&gt;
+        &lt;div class="row justify-content-center pb-5"&gt;
+          &lt;div class="col-md-12 heading-section text-center ftco-animate"&gt;
+            &lt;h1 class="big big-2"&gt;DIPLÔMES&lt;/h1&gt;
+            &lt;h2 class="mb-4"&gt;Diplômes&lt;/h2&gt;
+            &lt;p&gt;Voici un aperçu des diplômes obtenus et des formations suivies.&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="row"&gt;
+          &lt;div class="col-md-6 animate-box"&gt;
+            &lt;div class="progress-wrap ftco-animate"&gt;
+              &lt;h3&gt;Brevet des collèges&lt;/h3&gt;
+              &lt;div class="progress"&gt;
+                &lt;div class="progress-bar color-1" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-md-6 animate-box"&gt;
+            &lt;div class="progress-wrap ftco-animate"&gt;
+              &lt;h3&gt;Bac Général - Spécialités: SES, SVT, LLCE Anglais&lt;/h3&gt;
+              &lt;div class="progress"&gt;
+                &lt;div class="progress-bar color-2" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-md-6 animate-box"&gt;
+            &lt;div class="progress-wrap ftco-animate"&gt;
+              &lt;h3&gt;Permis B - Automatique&lt;/h3&gt;
+              &lt;div class="progress"&gt;
+                &lt;div class="progress-bar color-3" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="col-md-6 animate-box"&gt;
+            &lt;div class="progress-wrap ftco-animate"&gt;
+              &lt;h3&gt;BTS SIO - Solutions Logicielles et Applications Métiers&lt;/h3&gt;
+              &lt;div class="progress"&gt;
+                &lt;div class="progress-bar color-4" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width:25%"&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- OUTILS / SKILLS --&gt;
+    &lt;section class="ftco-section skills" id="Outils-section"&gt;
+      &lt;div class="container"&gt;
+        &lt;div class="row justify-content-center pb-5"&gt;
+          &lt;div class="col-md-12 heading-section text-center ftco-animate"&gt;
+            &lt;h1 class="big big-2"&gt;Skills&lt;/h1&gt;
+            &lt;h2 class="mb-4"&gt;Langages &amp; Outils&lt;/h2&gt;
+            &lt;p&gt;Voici les langages et outils que j’ai commencé à apprendre cette année en BTS SIO SLAM.&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="row"&gt;
+          &lt;!-- Python --&gt;
+          &lt;div class="col-md-4 mb-4 ftco-animate"&gt;
+            &lt;div class="project img d-flex justify-content-center align-items-center" style="background-image: url(images/python.png);"&gt;
+              &lt;div class="overlay"&gt;&lt;/div&gt;
+              &lt;div class="text text-center p-4"&gt;
+                &lt;h3&gt;Python&lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- CSS --&gt;
+          &lt;div class="col-md-4 mb-4 ftco-animate"&gt;
+            &lt;div class="project img d-flex justify-content-center align-items-center" style="background-image: url(images/css.png);"&gt;
+              &lt;div class="overlay"&gt;&lt;/div&gt;
+              &lt;div class="text text-center p-4"&gt;
+                &lt;h3&gt;CSS&lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- HTML --&gt;
+          &lt;div class="col-md-4 mb-4 ftco-animate"&gt;
+            &lt;div class="project img d-flex justify-content-center align-items-center" style="background-image: url(images/html.png);"&gt;
+              &lt;div class="overlay"&gt;&lt;/div&gt;
+              &lt;div class="text text-center p-4"&gt;
+                &lt;h3&gt;HTML&lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- PHP --&gt;
+          &lt;div class="col-md-4 mb-4 ftco-animate"&gt;
+            &lt;div class="project img d-flex justify-content-center align-items-center" style="background-image: url(images/php.png);"&gt;
+              &lt;div class="overlay"&gt;&lt;/div&gt;
+              &lt;div class="text text-center p-4"&gt;
+                &lt;h3&gt;PHP&lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- SQL --&gt;
+          &lt;div class="col-md-4 mb-4 ftco-animate"&gt;
+            &lt;div class="project img d-flex justify-content-center align-items-center" style="background-image: url(images/sql.png);"&gt;
+              &lt;div class="overlay"&gt;&lt;/div&gt;
+              &lt;div class="text text-center p-4"&gt;
+                &lt;h3&gt;SQL&lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Git --&gt;
+          &lt;div class="col-md-4 mb-4 ftco-animate"&gt;
+            &lt;div class="project img d-flex justify-content-center align-items-center" style="background-image: url(images/git.png);"&gt;
+              &lt;div class="overlay"&gt;&lt;/div&gt;
+              &lt;div class="text text-center p-4"&gt;
+                &lt;h3&gt;Git&lt;/h3&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/code&gt;&lt;/pre&gt;
+    </code></pre>
+</div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+        <a href="../index.html#services-section" class="project-btn">Retour aux projets</a>
+    </div>
+</section>
+
+</body>
+</html>

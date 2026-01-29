@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet 1 - Portfolio Sani ASLAM</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ===== CSS Intégré pour Projet ===== */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #131212;
+            color: #ffffff;
+        }
+
+        .project-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h1.big {
+            font-size: 80px;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffc107;
+        }
+
+        p.intro {
+            font-size: 16px;
+            line-height: 1.7;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        .project-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .project-text, .project-code {
+            flex: 1;
+            min-width: 350px;
+            max-height: 600px; /* hauteur fixe pour scroll si nécessaire */
+            border-radius: 10px;
+        }
+
+        .project-text {
+            background: #ffffff;
+            color: #000;
+            padding: 40px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            overflow-y: auto; /* scroll si le contenu dépasse */
+        }
+
+        .project-text img {
+            max-width: 100%;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .project-code {
+            background: #1e1e1e;
+            color: #fff;
+            padding: 40px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            overflow-y: auto; /* scroll vertical */
+            overflow-x: auto; /* scroll horizontal */
+        }
+
+        .project-code pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin: 0;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .project-btn {
+            display: inline-block;
+            text-align: center;
+            padding: 12px 30px;
+            background: #ffc107;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .project-btn:hover {
+            background: #e65c00;
+        }
+
+        /* Style pour les icônes Flaticon / Font Awesome */
+        .icon i {
+            font-size: 50px;
+            color: #F96D00;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .icon i:hover {
+            transform: scale(1.2);
+        }
+
+        @media(max-width:768px){
+            .project-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="project-container">
+    <h1 class="big style="color: white; onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color='white'">Projet pas encore renseigné</h1>
+    <h2>Projet 6</h2>
+    <p class="intro">Aucun projet n’a été ajouté pour le moment, mais il sera complété ultérieurement avec les détails et fonctionnalités correspondantes.</p>
+
+    <div class="project-row">
+        <div class="project-text">
+            <h3>Description</h3>
+            <p>Aucun Détails..</p>
+            <!-- <img src="images/project1.jpg" alt="Screenshot du projet 1"> -->
+            <p> </p>
+        </div>
+
+        <div class="project-code">
+    <h3>Code</h3>
+    <pre><code>
+Aucun code..
+
+    </code></pre>
+</div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+        <a href="../index.html#services-section" class="project-btn">Retour aux projets</a>
+    </div>
+</section>
+
+</body>
+</html>

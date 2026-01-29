@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet 1 - Portfolio Sani ASLAM</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style>
+        /* ===== CSS Intégré pour Projet ===== */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #131212;
+            color: #ffffff;
+        }
+
+        .project-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h1.big {
+            font-size: 80px;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffc107;
+        }
+
+        p.intro {
+            font-size: 16px;
+            line-height: 1.7;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        .project-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .project-text, .project-code {
+            flex: 1;
+            min-width: 350px;
+            max-height: 600px; /* hauteur fixe pour scroll si nécessaire */
+            border-radius: 10px;
+        }
+
+        .project-text {
+            background: #ffffff;
+            color: #000;
+            padding: 40px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            overflow-y: auto; /* scroll si le contenu dépasse */
+        }
+
+        .project-text img {
+            max-width: 100%;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .project-code {
+            background: #1e1e1e;
+            color: #fff;
+            padding: 40px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            overflow-y: auto; /* scroll vertical */
+            overflow-x: auto; /* scroll horizontal */
+        }
+
+        .project-code pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin: 0;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .project-btn {
+            display: inline-block;
+            text-align: center;
+            padding: 12px 30px;
+            background: #ffc107;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .project-btn:hover {
+            background: #e65c00;
+        }
+
+        /* Style pour les icônes Flaticon / Font Awesome */
+        .icon i {
+            font-size: 50px;
+            color: #F96D00;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .icon i:hover {
+            transform: scale(1.2);
+        }
+
+        @media(max-width:768px){
+            .project-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="project-container">
+    <h1 class="big style="color: white; onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color='white'">Boucle en python</h1>
+    <h2>Projet 3</h2>
+    <p class="intro">Voici une compilation d’exercices réalisés lors du premier semestre du BTS SIO.</p>
+
+    <div class="project-row">
+        <div class="project-text">
+            <h3>Description</h3>
+            <p>Liste de petits programmes d’entraînement pour les boucles en Python, réalisée dans le cadre du BTS SIO.
+Elle permet de s’exercer à différentes structures de répétition, comme les boucles for et while, afin de mieux comprendre leur fonctionnement et leur utilisation en programmation.</p>
+            <!-- <img src="images/project1.jpg" alt="Screenshot du projet 1"> -->
+            <p></p>
+        </div>
+
+        <div class="project-code">
+    <h3>Code Python</h3>
+    <pre><code class="language-python">
+
+"""Fonction f1 :
+Écrire une fonction nommée f1 qui possède comme seul argument une liste de nombres entiers et
+qui retourne la somme de tous les éléments de cette liste."""
+
+def f1(l1: list) -> int:
+    total = 0
+    for i in l1:
+        total += i
+    return total
+
+print(f1([4, 5, 6, 2, 8]))
+
+
+"""Fonction f2 :
+Écrire une fonction nommée f2 qui prend en argument une liste de chaînes de caractères, et qui
+retourne une chaîne contenant tous les éléments de la liste concaténés, séparés par un slash ("/")."""
+
+def f2(liste: list) -> str:
+    result = ""
+    for i in liste:
+        result += i + "/"
+    return result
+
+print(f2(["chat", "chien", "oiseau"]))
+
+
+"""Fonction f3 :
+Écrire une fonction nommée f3 qui prend en argument une liste de nombres entiers et un entier x.
+La fonction doit retourner une nouvelle liste où chaque élément de la liste d'origine est multiplié par x"""
+
+def f3(liste: list, x: int) -> list:
+    result = []
+    for i in liste:
+        result.append(i * x)
+    return result
+
+print(f3([2, 1, 5, 10], 2))
+
+
+"""Fonction f4 :
+Écrire une fonction nommée f4 qui prend en argument un tuple de nombres entiers, et qui retourne
+la valeur maximale parmi les éléments de ce tuple."""
+
+def f4(a: tuple) -> int:
+    max = 0
+    for i in a:
+        if max < i:
+            max = i
+    return max
+
+print(f4((5, 7, 9, 6, 3, 4)))
+
+
+"""Fonction f5 :
+Écrire une fonction nommée f5 qui prend en argument une chaîne de caractères, et qui retourne la
+même chaîne mais inversée."""
+
+def f5(a: str) -> str:
+    reverse = ""
+    for i in a:
+        reverse = i + reverse
+    return reverse
+
+print(f5("Azerty"))
+
+
+"""Fonction f6 :
+Écrire une fonction nommée f6 qui prend en argument un entier n, et qui retourne la somme des
+entiers de 0 à n-1."""
+
+def f6(a: int) -> int:
+    result = 0
+    for i in range(a):
+        result += i
+    return result
+
+print(f6(5))
+
+
+"""Fonction f7 :
+Écrire une fonction nommée f7 qui prend en argument une liste de nombres entiers, et qui retourne
+une nouvelle liste contenant uniquement les nombres pairs présents dans la liste d'origine."""
+
+def f7(a: list) -> list:
+    pair = []
+    for i in a:
+        if i % 2 == 0:
+            pair.append(i)
+    return pair
+
+print(f7([4, 0, 6, 8, 45, 692, 15, 75, 15]))
+
+
+"""Fonction f8 :
+Écrire une fonction nommée f8 qui prend en argument une chaîne de caractères, et qui retourne le
+nombre de voyelles (a, e, i, o, u, y) présentes dans cette chaîne."""
+
+def f8(a: str) -> int:
+    nombre = 0
+    voyelles = ["a", "e", "i", "o", "u", "y", "A", "E", "I", "O", "U", "Y"]
+    for i in a:
+        if i in voyelles:
+            nombre += 1
+    return nombre
+
+print(f8("Martin, Lucien, Alexandre"))
+
+
+"""Fonction f9 :
+Écrire une fonction nommée f9 qui prend en argument une liste de nombres entiers, et qui retourne
+une nouvelle liste contenant les carrés des éléments de la liste d'origine"""
+
+def f9(liste: list) -> list:
+    result = []
+    for i in liste:
+        i = i ** 2
+        result.append(i)
+    return result
+
+print(f9([5, 8, 9, 4, 1]))
+
+
+"""Fonction f10 :
+Écrire une fonction nommée f10 qui prend en arguments deux entiers a et b, et qui retourne un
+tuple contenant tous les entiers entre a et b-1 qui sont divisibles par 3."""
+
+def f10(a: int, b: int) -> tuple:
+    result = []
+    for i in range(a, b):
+        if i % 3 == 0:
+            result.append(i)
+    return result
+
+print(f10(2, 15))
+
+    </code></pre>
+</div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+        <a href="../index.html#services-section" class="project-btn">Retour aux projets</a>
+    </div>
+</section>
+
+</body>
+</html>

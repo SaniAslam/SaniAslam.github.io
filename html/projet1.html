@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet 1 - Portfolio Sani ASLAM</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style>
+        /* ===== CSS Intégré pour Projet ===== */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #131212;
+            color: #ffffff;
+        }
+
+        .project-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h1.big {
+            font-size: 80px;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffc107;
+        }
+
+        p.intro {
+            font-size: 16px;
+            line-height: 1.7;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        .project-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .project-text, .project-code {
+            flex: 1;
+            min-width: 350px;
+            max-height: 600px; /* hauteur fixe pour scroll si nécessaire */
+            border-radius: 10px;
+        }
+
+        .project-text {
+            background: #ffffff;
+            color: #000;
+            padding: 40px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            overflow-y: auto; /* scroll si le contenu dépasse */
+        }
+
+        .project-text img {
+            max-width: 100%;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .project-code {
+            background: #1e1e1e;
+            color: #fff;
+            padding: 40px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            overflow-y: auto; /* scroll vertical */
+            overflow-x: auto; /* scroll horizontal */
+        }
+
+        .project-code pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin: 0;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .project-btn {
+            display: inline-block;
+            text-align: center;
+            padding: 12px 30px;
+            background: #ffc107;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .project-btn:hover {
+            background: #e65c00;
+        }
+
+        /* Style pour les icônes Flaticon / Font Awesome */
+        .icon i {
+            font-size: 50px;
+            color: #F96D00;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .icon i:hover {
+            transform: scale(1.2);
+        }
+
+        @media(max-width:768px){
+            .project-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="project-container">
+    <h1 class="big style="color: white; onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color='white'">Calculatrice</h1>
+    <h2>Projet 1</h2>
+    <p class="intro">Voici un exemple de projet réalisé lors du premier semestre du BTS SIO.</p>
+
+    <div class="project-row">
+        <div class="project-text">
+            <h3>Description</h3>
+            <p>Ce projet est une calculatrice en Python réalisée dans le cadre du BTS SIO.
+Elle permet d’effectuer plusieurs opérations mathématiques de base : addition, soustraction, multiplication, division, puissance et modulo.</p>
+            <!-- <img src="images/project1.jpg" alt="Screenshot du projet 1"> -->
+            <p> En plus des calculs classiques, la calculatrice propose un mode pour déterminer si un nombre est pair ou impair. L’utilisateur peut choisir le mode souhaité via un menu interactif, ce qui rend l’application simple et intuitive.</p>
+        </div>
+
+        <div class="project-code">
+    <h3>Code Python</h3>
+    <pre><code class="language-python">
+def addition(a:float,b:float)->float:
+    print("Le résultat de",a,"+",b,"est :",a + b )
+def soustraction(a:float,b:float)->float:
+    print("Le résultat de",a,"-",b,"est :",a - b )
+def multiplication(a:float,b:float)->float:
+    print( "Le résultat de",a,"*",b,"est :",a * b )
+def division(a:float,b:float)->float:
+    if b > 0.0:
+        print( "Le résultat de",a,"/",b,"est :",a / b)
+    else:
+        print( "Division par 0 impossible")
+def puissance(a:float,b:float)->float:
+    print( "Le résultat de",a,"**",b,"est :",a ** b )
+def modulo(a:float,b:float)->float:
+     print( "Le résultat de",a,"%",b,"est :",a % b)
+
+#Nombre pair ou impair 
+def est_pair(n:int)->bool:
+    if n % 2 == 0:
+        return True
+    else:
+        return False
+
+def afficher_parite():
+    nombre = int(input("Entrez un nombre entier: "))
+    parite = est_pair(nombre)
+    if parite == True:
+        print("Le nombre", nombre, "est pair")
+    else:
+        print("Le nombre", nombre, "est impair")
+
+def racine_caree(a:float)->float:
+    if a >= 0 :
+        return a ** 0.5
+    else:
+        return "Racine carée avec un nombre négatif impossible"
+    
+
+def calculer(calcul:str)->float:
+    elements = calcul.split()
+    a = float(elements[0])
+    operation = elements[1]
+    b = float(elements[2])
+    if operation == "+":
+        return addition(a,b)
+    elif operation == "-":
+        return soustraction(a,b)
+    elif operation == "*":
+        return multiplication(a,b)
+    elif operation == "/":
+        return division(a,b)
+    elif operation == "^":
+        return puissance(a,b)
+    elif operation == "%":
+        return modulo(a,b)
+
+def demander_calcul():
+    calcul = input("Entrez un calcul(+, -, *, /, ^, %): ")
+    calculer(calcul)
+    
+print("--- Calculatrice ---")
+print("Quelle mode voulez vous utilisé ? :")
+while True:
+    mode = int(input("[1]->Calcul  [2]->Parité  [3]->Quitter  "))
+    if mode == 1:
+        demander_calcul()
+    elif mode == 2:
+        afficher_parite()
+    elif mode == 3:
+        print("Fin du programme")
+        quit()
+    else:
+        print("Mauvaise saisie") 
+
+    </code></pre>
+</div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+        <a href="../index.html#services-section" class="project-btn">Retour aux projets</a>
+    </div>
+</section>
+
+</body>
+</html>
