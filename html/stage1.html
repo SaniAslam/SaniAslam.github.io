@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stage GMT BAT | Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        :root {
+            --bg: #121212;
+            --card: #1b1b1b;
+            --border: rgba(255,255,255,0.08);
+            --text: #fff;
+            --muted: #aaa;
+            --yellow: #ffc107;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1000px, 90%);
+            margin: auto;
+        }
+
+        /* NAVBAR */
+
+        header {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Archivo';
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .nav a {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .nav a:hover {
+            color: var(--yellow);
+        }
+
+        /* HERO */
+
+        .hero {
+            padding: 100px 0 70px;
+        }
+
+        .small-title {
+            color: var(--yellow);
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-family: 'Archivo';
+            font-size: clamp(40px, 6vw, 65px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--yellow);
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        .info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .info span {
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .info i {
+            color: var(--yellow);
+            margin-right: 7px;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 65px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .label {
+            color: var(--yellow);
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: 'Archivo';
+            font-size: 32px;
+            margin-bottom: 25px;
+        }
+
+        .text {
+            color: var(--muted);
+            max-width: 750px;
+            font-size: 15px;
+        }
+
+        /* MISSIONS */
+
+        .missions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .mission {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            padding: 22px;
+        }
+
+        .mission i {
+            color: var(--yellow);
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .mission h3 {
+            font-family: 'Archivo';
+            font-size: 17px;
+            margin-bottom: 7px;
+        }
+
+        .mission p {
+            color: var(--muted);
+            font-size: 13.5px;
+        }
+
+        /* TECHNOLOGIES */
+
+        .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech {
+            padding: 7px 14px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 13px;
+            color: #ddd;
+        }
+
+        /* BUTTON */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+            padding: 11px 18px;
+            background: var(--yellow);
+            color: #111;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #e0a800;
+        }
+
+        footer {
+            padding: 25px 0;
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+
+            .missions {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 70px 0 50px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <div class="logo">
+            Stage <span style="color:#ffc107;">GMT BAT</span>
+        </div>
+
+        <a href="../index.html">
+            Retour au portfolio
+        </a>
+    </div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+    <div class="container">
+
+        <div class="small-title">
+            BTS SIO SLAM · PREMIÈRE ANNÉE
+        </div>
+
+        <h1>
+            Stage chez <span>GMT BAT</span>
+        </h1>
+
+        <p>
+            Dans le cadre de ma première année de BTS SIO SLAM,
+            j’ai réalisé un stage chez GMT BAT, une entreprise
+            spécialisée dans le bâtiment.
+        </p>
+
+        <div class="info">
+            <span>
+                <i class="fa-regular fa-calendar"></i>
+                25 mai — 4 juillet 2026
+            </span>
+
+            <span>
+                <i class="fa-solid fa-building"></i>
+                GMT BAT
+            </span>
+
+            <span>
+                <i class="fa-solid fa-code"></i>
+                Développement Web
+            </span>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PRESENTATION -->
+
+<section>
+    <div class="container">
+
+        <div class="label">PROJET</div>
+
+        <h2>Création d’un site vitrine</h2>
+
+        <p class="text">
+            Ma principale mission a été de participer à la création
+            d’un site web vitrine pour présenter l’entreprise,
+            ses activités et ses prestations.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- MISSIONS -->
+
+<section>
+    <div class="container">
+
+        <div class="label">MISSIONS</div>
+
+        <h2>Ce que j’ai réalisé</h2>
+
+        <div class="missions">
+
+            <div class="mission">
+                <i class="fa-solid fa-code"></i>
+                <h3>Développement</h3>
+                <p>
+                    Création et mise en forme des différentes
+                    parties du site.
+                </p>
+            </div>
+
+            <div class="mission">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <h3>Responsive</h3>
+                <p>
+                    Adaptation du site aux différents écrans.
+                </p>
+            </div>
+
+            <div class="mission">
+                <i class="fa-solid fa-check"></i>
+                <h3>Tests</h3>
+                <p>
+                    Vérification du fonctionnement et corrections
+                    des éléments du site.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- TECHNOLOGIES -->
+
+<section>
+    <div class="container">
+
+        <div class="label">TECHNOLOGIES</div>
+
+        <h2>Technologies utilisées</h2>
+
+        <div class="technologies">
+            <span class="tech">HTML5</span>
+            <span class="tech">CSS3</span>
+            <span class="tech">Responsive Design</span>
+            <span class="tech">Google Fonts</span>
+            <span class="tech">Font Awesome</span>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- BILAN -->
+
+<section>
+    <div class="container">
+
+        <div class="label">BILAN</div>
+
+        <h2>Une première expérience professionnelle</h2>
+
+        <p class="text">
+            Ce stage m’a permis de mettre en pratique mes connaissances
+            en développement web et de découvrir les différentes étapes
+            d’un projet réalisé en entreprise.
+        </p>
+
+        <a href="../index.html" class="btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Retour au portfolio
+        </a>
+
+    </div>
+</section>
+
+
+<footer>
+    Portfolio Aslam Sani
+</footer>
+
+</body>
+</html>

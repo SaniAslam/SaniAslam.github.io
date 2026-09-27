@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet 1 - Portfolio Sani ASLAM</title>
+    <title>Projet Short Link - Portfolio Sani ASLAM</title>
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/style.css">
+
     <style>
-        /* ===== CSS Intégré pour Projet ===== */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
@@ -24,15 +27,21 @@
 
         h1.big {
             font-size: 80px;
+            line-height: 1.05;
             color: #ffffff;
             text-align: center;
-            margin-bottom: 0;
+            margin: 0 0 8px;
+            transition: 0.3s;
+        }
+
+        h1.big:hover {
+            color: #ffc107;
         }
 
         h2 {
             font-size: 32px;
             text-align: center;
-            margin-bottom: 20px;
+            margin: 0 0 20px;
             color: #ffc107;
         }
 
@@ -40,52 +49,99 @@
             font-size: 16px;
             line-height: 1.7;
             text-align: center;
-            margin-bottom: 40px;
+            margin: 0 auto 40px;
             color: #ffffff;
+            max-width: 950px;
         }
 
         .project-row {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
+            align-items: stretch;
         }
 
-        .project-text, .project-code {
+        .project-text,
+        .project-code {
             flex: 1;
             min-width: 350px;
-            max-height: 600px; /* hauteur fixe pour scroll si nécessaire */
+            max-height: 650px;
             border-radius: 10px;
         }
 
         .project-text {
             background: #ffffff;
-            color: #000;
+            color: #000000;
             padding: 40px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-            overflow-y: auto; /* scroll si le contenu dépasse */
+            overflow-y: auto;
         }
 
-        .project-text img {
-            max-width: 100%;
-            margin-bottom: 15px;
-            border-radius: 8px;
+        .project-text h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .project-text h3:not(:first-child) {
+            margin-top: 30px;
+        }
+
+        .project-text p {
+            line-height: 1.65;
+        }
+
+        .project-text ul {
+            padding-left: 20px;
+        }
+
+        .project-text ul li {
+            margin-bottom: 10px;
+            line-height: 1.55;
         }
 
         .project-code {
             background: #1e1e1e;
-            color: #fff;
+            color: #ffffff;
             padding: 40px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-            overflow-y: auto; /* scroll vertical */
-            overflow-x: auto; /* scroll horizontal */
+            overflow-y: auto;
+            overflow-x: hidden;
         }
 
-        .project-code pre {
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            margin: 0;
-            font-family: monospace;
-            font-size: 14px;
+        .project-code h3 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .cr-step {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cr-step:last-child {
+            border-bottom: none;
+        }
+
+        .cr-step p {
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: #e6e6e6;
+            margin: 0 0 12px;
+        }
+
+        .cr-step img {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 6px;
+            display: block;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: #ffffff;
+        }
+
+        .project-links {
+            text-align: center;
+            margin-top: 40px;
         }
 
         .project-btn {
@@ -93,64 +149,256 @@
             text-align: center;
             padding: 12px 30px;
             background: #ffc107;
-            color: #fff;
+            color: #131212;
             font-weight: 600;
             border-radius: 5px;
             text-decoration: none;
             transition: 0.3s;
+            margin: 0 8px 10px;
         }
 
         .project-btn:hover {
             background: #e65c00;
+            color: #ffffff;
         }
 
-        /* Style pour les icônes Flaticon / Font Awesome */
-        .icon i {
-            font-size: 50px;
-            color: #F96D00;
+        .tag-list {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tag-list span {
             display: inline-block;
-            transition: transform 0.3s ease;
+            background: rgba(255,193,7,0.15);
+            color: #ffc107;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 4px;
         }
 
-        .icon i:hover {
-            transform: scale(1.2);
+        code {
+            background: rgba(255,193,7,0.12);
+            color: #d88b00;
+            padding: 2px 5px;
+            border-radius: 4px;
         }
 
-        @media(max-width:768px){
+        .project-code code {
+            color: #ffc107;
+        }
+
+        .api-box {
+            background: #111111;
+            border-left: 4px solid #ffc107;
+            padding: 15px 18px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .api-box strong {
+            color: #ffc107;
+        }
+
+        @media(max-width:768px) {
+            .project-container {
+                padding: 35px 15px;
+            }
+
+            h1.big {
+                font-size: 48px;
+            }
+
+            h2 {
+                font-size: 25px;
+            }
+
             .project-row {
                 flex-direction: column;
+            }
+
+            .project-text,
+            .project-code {
+                min-width: 0;
+                max-height: none;
             }
         }
     </style>
 </head>
+
 <body>
 
 <section class="project-container">
-    <h1 class="big style="color: white; onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color='white'">Projet pas encore renseigné</h1>
+
+    <h1 class="big">Short Link - API de raccourcissement d'URL</h1>
     <h2>Projet 6</h2>
-    <p class="intro">Aucun projet n’a été ajouté pour le moment, mais il sera complété ultérieurement avec les détails et fonctionnalités correspondantes.</p>
+
+    <p class="intro">
+        Petite API permettant de raccourcir des URLs grâce à FastAPI et SQLite.
+        L'application fonctionne en local et génère un code court permettant
+        ensuite de rediriger vers l'URL originale.
+    </p>
+
+    <div class="tag-list">
+        <span>Python</span>
+        <span>FastAPI</span>
+        <span>SQLite</span>
+        <span>API REST</span>
+        <span>Uvicorn</span>
+        <span>JSON</span>
+    </div>
 
     <div class="project-row">
+
         <div class="project-text">
+
             <h3>Description</h3>
-            <p>Aucun Détails..</p>
-            <!-- <img src="images/project1.jpg" alt="Screenshot du projet 1"> -->
-            <p> </p>
+
+            <p>
+                Ce projet consiste à créer une petite API de raccourcissement
+                d'URL. L'utilisateur envoie une URL à l'API et celle-ci génère
+                un code court. Ce code peut ensuite être utilisé pour retrouver
+                l'URL originale et effectuer une redirection.
+            </p>
+
+            <h3>Fonctionnalités principales</h3>
+
+            <ul>
+                <li>
+                    <strong>Raccourcir une URL :</strong>
+                    l'endpoint <code>POST /shorten</code> reçoit une URL au
+                    format JSON et génère automatiquement un code court.
+                </li>
+
+                <li>
+                    <strong>Génération du code :</strong>
+                    le projet utilise des lettres et des chiffres pour créer
+                    un code de 7 caractères.
+                </li>
+
+                <li>
+                    <strong>Vérification de l'unicité :</strong>
+                    avant l'enregistrement, le code généré est vérifié dans
+                    la base SQLite afin d'éviter un doublon.
+                </li>
+
+                <li>
+                    <strong>Stockage des URLs :</strong>
+                    les codes courts et les URLs originales sont enregistrés
+                    dans la base de données <code>urls.db</code>.
+                </li>
+
+                <li>
+                    <strong>Redirection :</strong>
+                    l'endpoint <code>GET /{short_code}</code> permet d'utiliser
+                    le code court pour rediriger vers l'URL d'origine.
+                </li>
+
+                <li>
+                    <strong>Documentation automatique :</strong>
+                    FastAPI fournit une interface Swagger permettant de tester
+                    directement l'API.
+                </li>
+            </ul>
+
+            <h3>Endpoints utilisés</h3>
+
+            <div class="api-box">
+                <p style="color: white;">
+                    <strong>POST /shorten</strong><br>
+                    Permet de créer une URL raccourcie.
+                </p>
+
+                <p style="color: white;">
+                    <strong>GET /{short_code}</strong><br>
+                    Utilise le code court pour retrouver l'URL originale.
+                </p>
+            </div>
+
+            <h3>Ce que j'ai appris</h3>
+
+            <p>
+                Ce projet m'a permis de découvrir la création d'une API avec
+                FastAPI, la réception de données JSON avec Pydantic, la création
+                d'endpoints HTTP et l'utilisation de SQLite pour stocker les
+                données. J'ai également appris à lancer une application FastAPI
+                avec Uvicorn et à tester les requêtes directement depuis la
+                documentation interactive.
+            </p>
+
         </div>
 
         <div class="project-code">
-    <h3>Code</h3>
-    <pre><code>
-Aucun code..
 
-    </code></pre>
-</div>
+            <h3>Compte-rendu du développement</h3>
+
+            <div class="cr-step">
+                <p>
+                    <strong>1. Documentation de l'API :</strong>
+                    FastAPI génère automatiquement une interface Swagger.
+                    Elle permet de visualiser l'endpoint <code>POST /shorten</code>
+                    et de fournir une URL au format JSON.
+                </p>
+
+                <img
+                    src="../images/compte-rendu/shortlink-step01.png"
+                    alt="Documentation FastAPI du projet Short Link"
+                >
+            </div>
+
+            <div class="cr-step">
+                <p>
+                    <strong>2. Test de la requête :</strong>
+                    une requête POST est envoyée vers
+                    <code>http://127.0.0.1:8000/shorten</code>.
+                    Le serveur retourne un code court ainsi que l'URL raccourcie.
+                </p>
+
+                <img
+                    src="../images/compte-rendu/shortlink-step02.png"
+                    alt="Test de l'API Short Link avec une requête POST"
+                >
+            </div>
+
+            <div class="cr-step">
+                <p>
+                    <strong>Résultat :</strong>
+                    l'API retourne une réponse JSON contenant le
+                    <code>short_code</code> et le <code>short_url</code>.
+                    Dans l'exemple testé, le code généré est
+                    <code>76ylJ32</code>.
+                </p>
+
+                <div class="api-box">
+                    <strong>Réponse obtenue</strong><br><br>
+                    {<br>
+                    &nbsp;&nbsp;"short_code": "76ylJ32",<br>
+                    &nbsp;&nbsp;"short_url": "http://127.0.0.1:8000/76ylJ32"<br>
+                    }
+                </div>
+            </div>
+
+        </div>
 
     </div>
 
-    <div style="text-align:center; margin-top:30px;">
-        <a href="../index.html#services-section" class="project-btn">Retour aux projets</a>
+    <div class="project-links">
+        <a
+            href="https://github.com/SaniAslam/Short_link"
+            target="_blank"
+            class="project-btn"
+        >
+            Voir sur GitHub
+        </a>
+
+        <a
+            href="../index.html#services-section"
+            class="project-btn"
+        >
+            Retour aux projets
+        </a>
     </div>
+
 </section>
 
 </body>

@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet 1 - Portfolio Sani ASLAM</title>
+    <title>Projet TMDB - Portfolio Sani ASLAM</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Prism.js + thème VS Code Dark+ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/PrismJS/prism-themes@1.9.0/themes/prism-vsc-dark-plus.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-php.min.js"></script>
+
     <style>
-        /* ===== CSS Intégré pour Projet ===== */
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
@@ -53,7 +57,7 @@
         .project-text, .project-code {
             flex: 1;
             min-width: 350px;
-            max-height: 600px; /* hauteur fixe pour scroll si nécessaire */
+            max-height: 600px;
             border-radius: 10px;
         }
 
@@ -62,13 +66,19 @@
             color: #000;
             padding: 40px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-            overflow-y: auto; /* scroll si le contenu dépasse */
+            overflow-y: auto;
         }
 
-        .project-text img {
-            max-width: 100%;
-            margin-bottom: 15px;
-            border-radius: 8px;
+        .project-text h3 {
+            margin-top: 0;
+        }
+
+        .project-text ul {
+            padding-left: 20px;
+        }
+
+        .project-text ul li {
+            margin-bottom: 8px;
         }
 
         .project-code {
@@ -76,16 +86,45 @@
             color: #fff;
             padding: 40px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-            overflow-y: auto; /* scroll vertical */
-            overflow-x: auto; /* scroll horizontal */
+            overflow-y: auto;
+            overflow-x: hidden;
         }
 
         .project-code pre {
-            white-space: pre-wrap;
+            white-space: pre;
             word-wrap: break-word;
             margin: 0;
             font-family: monospace;
-            font-size: 14px;
+            font-size: 13px;
+        }
+
+        .cr-step {
+            margin-bottom: 26px;
+            padding-bottom: 26px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cr-step:last-child {
+            border-bottom: none;
+        }
+
+        .cr-step p {
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: #e6e6e6;
+            margin: 0 0 12px;
+        }
+
+        .cr-step img {
+            max-width: 100%;
+            border-radius: 6px;
+            display: block;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .project-links {
+            text-align: center;
+            margin-top: 40px;
         }
 
         .project-btn {
@@ -93,27 +132,32 @@
             text-align: center;
             padding: 12px 30px;
             background: #ffc107;
-            color: #fff;
+            color: #131212;
             font-weight: 600;
             border-radius: 5px;
             text-decoration: none;
             transition: 0.3s;
+            margin: 0 8px;
         }
 
         .project-btn:hover {
             background: #e65c00;
+            color: #fff;
         }
 
-        /* Style pour les icônes Flaticon / Font Awesome */
-        .icon i {
-            font-size: 50px;
-            color: #F96D00;
+        .tag-list {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tag-list span {
             display: inline-block;
-            transition: transform 0.3s ease;
-        }
-
-        .icon i:hover {
-            transform: scale(1.2);
+            background: rgba(255,193,7,0.15);
+            color: #ffc107;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 4px;
         }
 
         @media(max-width:768px){
@@ -126,32 +170,135 @@
 <body>
 
 <section class="project-container">
-    <h1 class="big style="color: white; onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color='white'">Projet pas encore renseigné</h1>
+    <h1 class="big" style="color: white;" onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color='white'">API The Movie Database (TMDB)</h1>
     <h2>Projet 5</h2>
-    <p class="intro">Aucun projet n’a été ajouté pour le moment, mais il sera complété ultérieurement avec les détails et fonctionnalités correspondantes.</p>
+    <p class="intro">Application web en PHP qui exploite l'API publique de TheMovieDB pour afficher des films, leurs détails, les acteurs associés et permettre une recherche par titre ou par genre.</p>
+
+    <div class="tag-list">
+        <span>PHP</span>
+        <span>API REST</span>
+        <span>HTML/CSS</span>
+        <span>JSON</span>
+        <span>TMDB API</span>
+    </div>
 
     <div class="project-row">
         <div class="project-text">
             <h3>Description</h3>
-            <p>Aucun Détails..</p>
-            <!-- <img src="images/project1.jpg" alt="Screenshot du projet 1"> -->
-            <p> </p>
+            <p>Ce projet consomme l'API TMDB pour construire un mini site de films en PHP. L'objectif était de manipuler une API externe, structurer les requêtes dans des fonctions réutilisables, et afficher les résultats de façon claire.</p>
+
+            <h3>Fonctionnalités principales</h3>
+            <ul>
+                <li><strong>Films les mieux notés</strong> : récupération et affichage des films les mieux notés via une fonction dédiée (<code>topRated</code>).</li>
+                <li><strong>Filtre par genre</strong> : un menu liste tous les genres TMDB (avec leur identifiant) et affiche les films correspondants via <code>filmParGenre</code>.</li>
+                <li><strong>Fiche film</strong> : clic sur un film → page de détail (<code>movieDetails.php</code>) qui récupère l'identifiant du film dans l'URL et affiche ses informations, avec le casting sous forme de cartes défilantes horizontalement.</li>
+                <li><strong>Fiche acteur</strong> : page dédiée à chaque acteur (<code>actorDetails.php</code>) affichant ses informations et une sélection de ses films principaux, chacun cliquable vers sa propre fiche.</li>
+                <li><strong>Recherche</strong> : barre de recherche redirigeant vers <code>searchMovies.php</code> ou <code>searchActors.php</code> selon le type de recherche.</li>
+                <li><strong>Bandes-annonces</strong> : affichage des trailers YouTube (VO et VF quand disponibles) via iframe sur la fiche film.</li>
+                <li><strong>Thème sombre</strong> : mise en forme personnalisée via un fichier <code>global.css</code> dédié.</li>
+            </ul>
+
+            <h3>Ce que j'ai appris</h3>
+            <p>Manipuler une API REST externe en PHP avec <code>file_get_contents</code>, structurer le code en fonctions réutilisables, passer des paramètres via l'URL (<code>$_GET</code>), et gérer l'affichage conditionnel de données (acteurs sans photo, trailer manquant, etc.).</p>
         </div>
 
         <div class="project-code">
-    <h3>Code</h3>
-    <pre><code>
-Aucun code..
+            <h3>Compte-rendu du développement</h3>
 
-    </code></pre>
-</div>
+            <div class="cr-step">
+                <p>Après avoir installé WAMP, je mets le code lié au proxy en commentaire et le remplace par une requête directe avec <code>file_get_contents</code>.</p>
+                <img src="../images/compte-rendu/step01.png" alt="Étape 1 — configuration WAMP et proxy">
+            </div>
 
+            <div class="cr-step">
+                <p>Ajout de la fonction <code>topRated</code> dans <code>fonctions.php</code>, permettant de récupérer les films les mieux notés via l'API TMDB et de retourner les résultats sous forme de tableau.</p>
+                <img src="../images/compte-rendu/step02.png" alt="Étape 2 — fonction topRated">
+            </div>
+
+            <div class="cr-step">
+                <p>Création du fichier <code>TopRated.php</code> qui utilise cette fonction afin d'afficher les films les mieux notés.</p>
+                <img src="../images/compte-rendu/step03.png" alt="Étape 3 — page TopRated.php">
+            </div>
+
+            <div class="cr-step">
+                <p>Modification du pointage du fichier <code>TopRated.php</code> :</p>
+                <img src="../images/compte-rendu/step04.png" alt="Étape 4 — modification du pointage">
+                <p>On ajoute tous les genres dans le menu, chacun associé à son identifiant fourni dans l'énoncé, afin de pouvoir filtrer les films par catégorie.</p>
+                <img src="../images/compte-rendu/step05.png" alt="Étape 5 — menu des genres">
+            </div>
+
+            <div class="cr-step">
+                <p>Création de la page <code>genreMovies.php</code> qui récupère l'id dans l'URL, vérifie qu'il existe, puis l'utilise pour appeler une fonction qui retourne les films correspondant au genre choisi.</p>
+                <img src="../images/compte-rendu/step06.png" alt="Étape 6 — genreMovies.php">
+            </div>
+
+            <div class="cr-step">
+                <p>Ajout de l'affichage des films : on parcourt le tableau et on affiche les informations principales pour chaque film.</p>
+                <img src="../images/compte-rendu/step07.png" alt="Étape 7 — affichage des films">
+            </div>
+
+            <div class="cr-step">
+                <p>Création de la fonction <code>filmParGenre</code> dans <code>fonctions.php</code> : elle prend en paramètre l'id du genre et effectue une requête vers l'API TMDB pour récupérer les films associés à ce genre.</p>
+                <img src="../images/compte-rendu/step08.png" alt="Étape 8 — fonction filmParGenre">
+            </div>
+
+            <div class="cr-step">
+                <p>Détail des films : on utilise un lien <code>&lt;a&gt;</code> pour que le clic redirige vers une autre page. L'identifiant du film est transmis dans l'URL puis récupéré avec <code>$_GET['movieId']</code> dans <code>movieDetails.php</code>.</p>
+                <img src="../images/compte-rendu/step09.png" alt="Étape 9 — lien vers la fiche film">
+            </div>
+
+            <div class="cr-step">
+                <p>La page <code>movieDetails.php</code> affiche les informations d'un film quand on clique sur « Voir » : elle récupère l'id du film dans l'URL puis l'utilise pour aller chercher les données via l'API. Aperçu :</p>
+                <img src="../images/compte-rendu/step10.png" alt="Étape 10 — movieDetails.php">
+                <img src="../images/compte-rendu/step11.png" alt="Étape 11 — aperçu de la fiche film">
+            </div>
+
+            <div class="cr-step">
+                <p>Cette partie affiche les acteurs du film sous forme de cartes avec leur photo et leur nom. On vérifie d'abord que la liste existe, puis on parcourt chaque acteur en n'affichant que ceux qui ont une image. Les acteurs sont présentés dans une ligne défilante horizontalement. Pour le style, je me suis aidé de tutoriels afin d'obtenir un rendu propre et lisible.</p>
+                <img src="../images/compte-rendu/step12.png" alt="Étape 12 — cartes acteurs">
+            </div>
+
+            <div class="cr-step">
+                <p>Création de <code>actorDetails.php</code> permettant d'afficher les informations d'un acteur ainsi que ses principaux films. La page récupère les données via l'API en utilisant l'id de l'acteur présent dans l'URL, puis affiche uniquement une sélection des films les plus importants.</p>
+                <img src="../images/compte-rendu/step13.png" alt="Étape 13 — actorDetails.php">
+            </div>
+
+            <div class="cr-step">
+                <p>Après quelques tests, je me suis rendu compte que les films affichés dans la fiche d'un acteur n'étaient pas cliquables. J'ai donc modifié le code en ajoutant un lien sur chaque film afin de rediriger vers la page de détail du film en passant son identifiant dans l'URL.</p>
+                <img src="../images/compte-rendu/step14.png" alt="Étape 14 — films cliquables">
+            </div>
+
+            <div class="cr-step">
+                <p>Barre de recherche : dans <code>header.php</code>, en remplaçant <code>action="#"</code> par <code>searchActors.php</code> et <code>searchMovies.php</code> afin d'envoyer les recherches vers les bonnes pages. Création des fichiers correspondants pour traiter la recherche via l'API et afficher les résultats.</p>
+                <img src="../images/compte-rendu/step15.png" alt="Étape 15 — barre de recherche">
+                <img src="../images/compte-rendu/step16.png" alt="Étape 16 — résultats de recherche">
+                <p>Test réalisé avec le mot « tom » :</p>
+            </div>
+
+            <div class="cr-step">
+                <p>Ajout d'une section « bandes-annonces » sur la page de détail des films. Les vidéos sont récupérées via l'API TMDB et affichées sous forme d'iframe YouTube. Le système permet d'afficher une bande-annonce en VO et une en VF lorsqu'elles sont disponibles, sinon une seule vidéo est affichée.</p>
+                <img src="../images/compte-rendu/step17.png" alt="Étape 17 — bandes-annonces">
+            </div>
+
+            <div class="cr-step">
+                <p>Ajout de balises <code>&lt;style&gt;</code> et création d'un fichier <code>global.css</code> afin d'assombrir l'ensemble du thème du site.</p>
+                <img src="../images/compte-rendu/step18.png" alt="Étape 18 — thème sombre">
+            </div>
+
+            <div class="cr-step">
+                <p><strong>Résultat final :</strong></p>
+                <img src="../images/compte-rendu/step19.png" alt="Étape 19 — résultat final">
+            </div>
+        </div>
     </div>
 
-    <div style="text-align:center; margin-top:30px;">
+    <div class="project-links">
+        <a href="https://github.com/SaniAslam/API-The-Movie-Database-TMDB-/tree/master" target="_blank" class="project-btn">Voir sur GitHub</a>
         <a href="../index.html#services-section" class="project-btn">Retour aux projets</a>
     </div>
 </section>
+
+<script>Prism.highlightAll();</script>
 
 </body>
 </html>

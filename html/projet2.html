@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet 1 - Portfolio Sani ASLAM</title>
+    <title>Salaries Chambord - Portfolio Sani ASLAM</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/style.css">
@@ -42,6 +42,21 @@
             text-align: center;
             margin-bottom: 40px;
             color: #ffffff;
+        }
+
+        .tag-list {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tag-list span {
+            display: inline-block;
+            background: rgba(255,193,7,0.15);
+            color: #ffc107;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 4px;
         }
 
         .project-row {
@@ -88,6 +103,11 @@
             font-size: 14px;
         }
 
+        .project-links {
+            text-align: center;
+            margin-top: 40px;
+        }
+
         .project-btn {
             display: inline-block;
             text-align: center;
@@ -98,6 +118,7 @@
             border-radius: 5px;
             text-decoration: none;
             transition: 0.3s;
+            margin: 0 8px;
         }
 
         .project-btn:hover {
@@ -126,17 +147,23 @@
 <body>
 
 <section class="project-container">
-    <h1 class="big style="color: white; onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color='white'">Site hôtel chambord</h1>
+    <h1 class="big" style="color: white;" onmouseover="this.style.color='#ffc107'" onmouseout="this.style.color='white'">Salaries Chambord</h1>
     <h2>Projet 2</h2>
     <p class="intro">Voici un exemple de projet réalisé lors du premier semestre du BTS SIO.</p>
+
+    <div class="tag-list">
+        <span>SQL</span>
+        <span>HTML</span>
+        <span>CSS</span>
+    </div>
 
     <div class="project-row">
         <div class="project-text">
             <h3>Description</h3>
-            <p>Ce projet consiste en la création d’un site web fictif pour un hôtel, réalisé en groupe de trois.
+            <p>Ce projet consiste en la création d'un site web fictif pour un hôtel, réalisé en groupe de trois.
 Il était demandé de concevoir plusieurs pages en HTML et CSS afin de répondre aux différents besoins du site :
-une page de réservation, une page de connexion, une page de recrutement, une page d’activités, une page d’avis, une page d’erreur 404, une page de modification de compte, une page de création d’emplois ainsi qu’une interface de gestion des utilisateurs et des services.            <!-- <img src="images/project1.jpg" alt="Screenshot du projet 1"> -->
-            <p> En plus des pages principales, le site propose plusieurs fonctionnalités comme la réservation et la gestion des comptes. L’utilisateur peut naviguer facilement grâce à une interface simple et intuitive.</p>
+une page de réservation, une page de connexion, une page de recrutement, une page d'activités, une page d'avis, une page d'erreur 404, une page de modification de compte, une page de création d'emplois ainsi qu'une interface de gestion des utilisateurs et des services.            <!-- <img src="images/project1.jpg" alt="Screenshot du projet 1"> -->
+            <p> En plus des pages principales, le site propose plusieurs fonctionnalités comme la réservation et la gestion des comptes. L'utilisateur peut naviguer facilement grâce à une interface simple et intuitive.</p>
         </div>
 
 <div class="project-code">
@@ -152,7 +179,8 @@ une page de réservation, une page de connexion, une page de recrutement, une pa
 
     </div>
 
-    <div style="text-align:center; margin-top:30px;">
+    <div class="project-links">
+        <a href="https://github.com/SaniAslam/Salaries_chambord" target="_blank" class="project-btn">Voir sur GitHub</a>
         <a href="../index.html#services-section" class="project-btn">Retour aux projets</a>
     </div>
 </section>
