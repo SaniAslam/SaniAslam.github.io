@@ -1,410 +1,751 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rapport de stage — GMT BAT | Portfolio </title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="icon" href="../images/nier.ico" type="image/x-icon">
+<style>
+:root{
+    --bg:#121212;
+    --card:#1b1b1b;
+    --card2:#202020;
+    --border:rgba(255,255,255,.09);
+    --text:#fff;
+    --muted:#aaa;
+    --yellow:#ffc107;
+    --code:#101010;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+    background:var(--bg);color:var(--text);
+    font-family:'Inter',sans-serif;line-height:1.75;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1000px,90%);margin:auto}
+header{border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(18,18,18,.96);z-index:10}
+.nav{min-height:70px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.logo{font-family:'Archivo';font-size:19px;font-weight:800}
+.logo span,.label,.toc a:hover{color:var(--yellow)}
+.navlinks{display:flex;gap:18px;flex-wrap:wrap}
+.navlinks a{font-size:13px;color:#ccc}
+.navlinks a:hover{color:var(--yellow)}
 
-    <title>Stage GMT BAT | Portfolio</title>
+.hero{padding:90px 0 70px;border-bottom:1px solid var(--border)}
+.small-title,.label{
+    color:var(--yellow);font-size:12px;letter-spacing:2px;
+    margin-bottom:10px;font-weight:600
+}
+.hero h1{font-family:'Archivo';font-size:clamp(40px,6vw,68px);line-height:1.05;margin-bottom:22px}
+.hero h1 span{color:var(--yellow)}
+.hero .intro{max-width:780px;color:var(--muted);font-size:16px}
+.info{display:flex;flex-wrap:wrap;gap:25px;margin-top:25px}
+.info span{font-size:14px;color:#ddd}
+.info i{color:var(--yellow);margin-right:7px}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+section{padding:70px 0;border-bottom:1px solid var(--border)}
+h2{font-family:'Archivo';font-size:32px;line-height:1.2;margin-bottom:25px}
+h3{font-family:'Archivo';font-size:20px;margin:28px 0 12px}
+h4{font-size:15px;margin:20px 0 8px;color:#eee}
+.text{color:var(--muted);max-width:820px;font-size:15px;margin-bottom:16px}
+.text strong{color:#eee}
+ul,ol{margin:12px 0 20px 22px;color:var(--muted)}
+li{margin:6px 0}
+.toc{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:25px;margin-top:25px}
+.toc ol{margin-bottom:0}
+.toc a{color:#ddd}
 
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:25px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:22px}
+.card i{color:var(--yellow);font-size:22px;margin-bottom:12px}
+.card h3{font-size:17px;margin:0 0 8px}
+.card p{font-size:13.5px;color:var(--muted)}
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+.timeline{border-left:2px solid var(--yellow);margin:30px 0;padding-left:25px}
+.step{position:relative;margin-bottom:30px}
+.step:before{
+    content:"";position:absolute;left:-34px;top:6px;width:10px;height:10px;
+    border-radius:50%;background:var(--yellow)
+}
+.step h3{margin:0 0 7px;font-size:18px}
+.step p{color:var(--muted);font-size:14px}
 
-    <style>
+.code-title{font-size:13px;color:#ddd;margin:20px 0 7px}
+pre{
+    background:var(--code);border:1px solid var(--border);border-radius:8px;
+    padding:18px;overflow:auto;color:#ddd;font-size:12.5px;line-height:1.6;
+    white-space:pre-wrap
+}
+.note{
+    border-left:3px solid var(--yellow);background:#191919;
+    padding:16px 18px;margin:22px 0;color:#bbb;font-size:13.5px
+}
+.note strong{color:#fff}
+.techs{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.tech{border:1px solid var(--border);border-radius:20px;padding:7px 13px;color:#ddd;font-size:13px}
+.table-wrap{overflow-x:auto;margin:20px 0}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:13.5px}
+th,td{border:1px solid var(--border);padding:12px;text-align:left;vertical-align:top}
+th{color:var(--yellow);font-weight:600}
+td{color:#bbb}
+.quote{background:var(--card);border-left:3px solid var(--yellow);padding:20px;margin:20px 0;color:#ccc;font-style:italic}
+.badge{display:inline-block;background:rgba(255,193,7,.12);color:var(--yellow);padding:4px 8px;border-radius:5px;font-size:11px;margin-bottom:10px}
+.back{display:inline-flex;align-items:center;gap:10px;margin-top:25px;background:var(--yellow);color:#111;padding:11px 18px;border-radius:6px;font-weight:600;font-size:14px}
+footer{padding:30px 0;text-align:center;color:#777;font-size:13px}
 
-        :root {
-            --bg: #121212;
-            --card: #1b1b1b;
-            --border: rgba(255,255,255,0.08);
-            --text: #fff;
-            --muted: #aaa;
-            --yellow: #ffc107;
-        }
+@media(max-width:700px){
+    .nav{padding:12px 0;align-items:flex-start;flex-direction:column}
+    .grid{grid-template-columns:1fr}
+    .hero{padding:65px 0 50px}
+    section{padding:50px 0}
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            width: min(1000px, 90%);
-            margin: auto;
-        }
-
-        /* NAVBAR */
-
-        header {
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav {
-            height: 70px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Archivo';
-            font-size: 20px;
-            font-weight: 800;
-        }
-
-        .nav a {
-            color: #ccc;
-            font-size: 14px;
-        }
-
-        .nav a:hover {
-            color: var(--yellow);
-        }
-
-        /* HERO */
-
-        .hero {
-            padding: 100px 0 70px;
-        }
-
-        .small-title {
-            color: var(--yellow);
-            font-size: 13px;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
-
-        .hero h1 {
-            font-family: 'Archivo';
-            font-size: clamp(40px, 6vw, 65px);
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: var(--yellow);
-        }
-
-        .hero p {
-            max-width: 650px;
-            color: var(--muted);
-            font-size: 16px;
-        }
-
-        .info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .info span {
-            font-size: 14px;
-            color: #ddd;
-        }
-
-        .info i {
-            color: var(--yellow);
-            margin-right: 7px;
-        }
-
-        /* SECTIONS */
-
-        section {
-            padding: 65px 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .label {
-            color: var(--yellow);
-            font-size: 12px;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-
-        h2 {
-            font-family: 'Archivo';
-            font-size: 32px;
-            margin-bottom: 25px;
-        }
-
-        .text {
-            color: var(--muted);
-            max-width: 750px;
-            font-size: 15px;
-        }
-
-        /* MISSIONS */
-
-        .missions {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .mission {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 9px;
-            padding: 22px;
-        }
-
-        .mission i {
-            color: var(--yellow);
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-
-        .mission h3 {
-            font-family: 'Archivo';
-            font-size: 17px;
-            margin-bottom: 7px;
-        }
-
-        .mission p {
-            color: var(--muted);
-            font-size: 13.5px;
-        }
-
-        /* TECHNOLOGIES */
-
-        .technologies {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .tech {
-            padding: 7px 14px;
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            font-size: 13px;
-            color: #ddd;
-        }
-
-        /* BUTTON */
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 30px;
-            padding: 11px 18px;
-            background: var(--yellow);
-            color: #111;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #e0a800;
-        }
-
-        footer {
-            padding: 25px 0;
-            text-align: center;
-            color: #777;
-            font-size: 13px;
-        }
-
-        @media (max-width: 700px) {
-
-            .missions {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding: 70px 0 50px;
-            }
-        }
-
-    </style>
+/* Mise en page pour impression/PDF */
+@media print{
+    body{background:#fff;color:#111}
+    header{display:none}
+    .hero{padding:35px 0;border:0}
+    .hero h1,.hero h1 span{color:#111}
+    .hero .intro,.text,li,.step p,.card p,td{color:#333}
+    section{border-bottom:1px solid #ddd;page-break-inside:avoid}
+    .card,.toc,pre,table{background:#f7f7f7;border-color:#ddd}
+    .label,th{color:#8a6200}
+    .back{display:none}
+    a{color:#111}
+}
+</style>
 </head>
 
 <body>
-
 <header>
     <div class="container nav">
-        <div class="logo">
-            Stage <span style="color:#ffc107;">GMT BAT</span>
-        </div>
-
-        <a href="../index.html">
-            Retour au portfolio
-        </a>
+        <div class="logo">Rapport <span>GMT BAT</span></div>
+        <nav class="navlinks">
+            <a href="#sommaire">Sommaire</a>
+            <a href="#entreprise">Entreprise</a>
+            <a href="#projet">Projet</a>
+            <a href="#developpement">Développement</a>
+            <a href="#bilan">Bilan</a>
+            <a href="../index.html" class="portfolio-btn">
+    <i class="fa-solid fa-arrow-left"></i> Portfolio
+</a>
+        </nav>
     </div>
 </header>
 
-
-<!-- HERO -->
+<main>
 
 <section class="hero">
     <div class="container">
-
-        <div class="small-title">
-            BTS SIO SLAM · PREMIÈRE ANNÉE
-        </div>
-
-        <h1>
-            Stage chez <span>GMT BAT</span>
-        </h1>
-
-        <p>
-            Dans le cadre de ma première année de BTS SIO SLAM,
-            j’ai réalisé un stage chez GMT BAT, une entreprise
-            spécialisée dans le bâtiment.
+        <div class="small-title">BTS SIO SLAM · PREMIÈRE ANNÉE</div>
+        <h1>Rapport de stage<br><span>GMT BAT</span></h1>
+        <p class="intro">
+            Dans le cadre de ma première année de BTS SIO option SLAM, j’ai effectué un stage
+            du 25 mai au 4 juillet 2026 au sein de GMT BAT. La mission principale présentée
+            dans ce rapport concerne la conception et le développement d’un site web vitrine
+            destiné à présenter l’activité de l’entreprise et à faciliter la prise de contact.
         </p>
-
         <div class="info">
-            <span>
-                <i class="fa-regular fa-calendar"></i>
-                25 mai — 4 juillet 2026
-            </span>
-
-            <span>
-                <i class="fa-solid fa-building"></i>
-                GMT BAT
-            </span>
-
-            <span>
-                <i class="fa-solid fa-code"></i>
-                Développement Web
-            </span>
+            <span><i class="fa-regular fa-calendar"></i>25 mai — 4 juillet 2026</span>
+            <span><i class="fa-solid fa-building"></i>GMT BAT</span>
+            <span><i class="fa-solid fa-code"></i>Développement Web</span>
+            <span><i class="fa-solid fa-graduation-cap"></i>BTS SIO SLAM</span>
         </div>
-
-    </div>
-</section>
-
-
-<!-- PRESENTATION -->
-
-<section>
-    <div class="container">
-
-        <div class="label">PROJET</div>
-
-        <h2>Création d’un site vitrine</h2>
-
-        <p class="text">
-            Ma principale mission a été de participer à la création
-            d’un site web vitrine pour présenter l’entreprise,
-            ses activités et ses prestations.
-        </p>
-
-    </div>
-</section>
-
-
-<!-- MISSIONS -->
-
-<section>
-    <div class="container">
-
-        <div class="label">MISSIONS</div>
-
-        <h2>Ce que j’ai réalisé</h2>
-
-        <div class="missions">
-
-            <div class="mission">
-                <i class="fa-solid fa-code"></i>
-                <h3>Développement</h3>
-                <p>
-                    Création et mise en forme des différentes
-                    parties du site.
-                </p>
-            </div>
-
-            <div class="mission">
-                <i class="fa-solid fa-mobile-screen"></i>
-                <h3>Responsive</h3>
-                <p>
-                    Adaptation du site aux différents écrans.
-                </p>
-            </div>
-
-            <div class="mission">
-                <i class="fa-solid fa-check"></i>
-                <h3>Tests</h3>
-                <p>
-                    Vérification du fonctionnement et corrections
-                    des éléments du site.
-                </p>
-            </div>
-
+        <div class="note">
+            <strong>Confidentialité :</strong> certaines informations relatives à l’entreprise,
+            à son organisation, à ses clients, à ses méthodes de travail ou à ses données internes
+            n’ont pas vocation à être diffusées. Elles sont donc volontairement peu détaillées dans
+            ce rapport. Les exemples techniques présentés servent principalement à expliquer la
+            démarche de développement sans révéler d’informations internes.
         </div>
-
     </div>
 </section>
 
+<section id="sommaire">
+<div class="container">
+    <div class="label">SOMMAIRE</div>
+    <h2>Organisation du rapport</h2>
+    <p class="text">Le rapport présente le projet de manière progressive, depuis le contexte du stage jusqu’au bilan de l’expérience professionnelle.</p>
+    <div class="toc">
+        <ol>
+            <li><a href="#entreprise">Présentation de l’entreprise et contexte du stage</a></li>
+            <li><a href="#objectifs">Objectifs et expression du besoin</a></li>
+            <li><a href="#analyse">Analyse et préparation du projet</a></li>
+            <li><a href="#conception">Conception de l’interface et de l’arborescence</a></li>
+            <li><a href="#developpement">Développement HTML et structure des pages</a></li>
+            <li><a href="#css">Mise en forme avec CSS et identité visuelle</a></li>
+            <li><a href="#responsive">Adaptation aux écrans et responsive design</a></li>
+            <li><a href="#contenu">Intégration du contenu et des différentes sections</a></li>
+            <li><a href="#tests">Tests, corrections et validation</a></li>
+            <li><a href="#difficultes">Difficultés rencontrées et solutions</a></li>
+            <li><a href="#competences">Compétences mobilisées et lien avec le BTS SIO</a></li>
+            <li><a href="#bilan">Bilan personnel et professionnel</a></li>
+        </ol>
+    </div>
+</div>
+</section>
 
-<!-- TECHNOLOGIES -->
+<section id="entreprise">
+<div class="container">
+    <div class="label">01 · CONTEXTE</div>
+    <h2>Présentation de l’entreprise et du stage</h2>
+    <p class="text">
+        GMT BAT est une entreprise du secteur du bâtiment et des travaux publics. Le site réalisé
+        pendant le stage avait pour objectif de proposer une présence en ligne claire et professionnelle.
+        Le projet permettait notamment de présenter les activités de l’entreprise, ses prestations,
+        quelques exemples de réalisations et les informations nécessaires pour prendre contact.
+    </p>
+    <p class="text">
+        Mon stage s’est déroulé du <strong>25 mai au 4 juillet 2026</strong>. Il m’a permis de découvrir
+        le fonctionnement d’un projet informatique dans un environnement professionnel, tout en mettant
+        en pratique des notions étudiées en première année de BTS SIO SLAM.
+    </p>
+    <p class="text">
+        La réalisation d’un site vitrine peut sembler simple au premier abord, mais elle demande plusieurs
+        étapes : comprendre le besoin, organiser les informations, réfléchir à l’ergonomie, construire
+        la structure HTML, réaliser la mise en forme CSS, adapter le résultat aux écrans mobiles, puis
+        effectuer des tests et des corrections.
+    </p>
 
-<section>
-    <div class="container">
-
-        <div class="label">TECHNOLOGIES</div>
-
-        <h2>Technologies utilisées</h2>
-
-        <div class="technologies">
-            <span class="tech">HTML5</span>
-            <span class="tech">CSS3</span>
-            <span class="tech">Responsive Design</span>
-            <span class="tech">Google Fonts</span>
-            <span class="tech">Font Awesome</span>
+    <div class="grid">
+        <div class="card">
+            <i class="fa-solid fa-building"></i>
+            <h3>Environnement professionnel</h3>
+            <p>Découverte d’une entreprise du bâtiment et de la manière dont un projet numérique peut accompagner sa communication.</p>
         </div>
-
+        <div class="card">
+            <i class="fa-solid fa-laptop-code"></i>
+            <h3>Mission principale</h3>
+            <p>Conception et développement d’un site web vitrine présentant l’entreprise, ses métiers, ses réalisations et son contact.</p>
+        </div>
     </div>
+
+    <div class="note">
+        <strong>Limite documentaire :</strong> les informations précises concernant l’organisation interne,
+        les données commerciales, certains éléments liés aux clients et les méthodes propres à l’entreprise
+        ne sont pas développées ici, car une partie de ces informations devait rester confidentielle.
+    </div>
+</div>
 </section>
 
+<section id="objectifs">
+<div class="container">
+    <div class="label">02 · BESOIN</div>
+    <h2>Objectifs et expression du besoin</h2>
+    <p class="text">
+        Avant de commencer à coder, il est nécessaire de déterminer ce que le site doit permettre à
+        l’utilisateur de faire. Dans le cas d’un site vitrine, l’objectif n’est pas de gérer une base
+        de données complexe ou un espace client : il s’agit surtout de présenter l’entreprise rapidement
+        et de permettre au visiteur d’identifier les services proposés et les moyens de contact.
+    </p>
+    <h3>Objectifs fonctionnels</h3>
+    <ul>
+        <li>Présenter clairement GMT BAT dès l’arrivée sur le site.</li>
+        <li>Présenter les principaux métiers et prestations.</li>
+        <li>Présenter quelques réalisations sous une forme visuelle.</li>
+        <li>Expliquer simplement les principales étapes d’un projet.</li>
+        <li>Mettre en avant les informations permettant de contacter l’entreprise.</li>
+        <li>Permettre une navigation simple entre les différentes sections.</li>
+    </ul>
 
-<!-- BILAN -->
+    <h3>Objectifs techniques</h3>
+    <ul>
+        <li>Utiliser une structure HTML5 claire et organisée.</li>
+        <li>Utiliser CSS pour créer une identité visuelle cohérente.</li>
+        <li>Prévoir une adaptation aux petits écrans.</li>
+        <li>Éviter une interface trop chargée afin de conserver une bonne lisibilité.</li>
+        <li>Tester les liens, les sections et l’affichage sur différentes tailles d’écran.</li>
+    </ul>
 
-<section>
-    <div class="container">
-
-        <div class="label">BILAN</div>
-
-        <h2>Une première expérience professionnelle</h2>
-
-        <p class="text">
-            Ce stage m’a permis de mettre en pratique mes connaissances
-            en développement web et de découvrir les différentes étapes
-            d’un projet réalisé en entreprise.
-        </p>
-
-        <a href="../index.html" class="btn">
-            <i class="fa-solid fa-arrow-left"></i>
-            Retour au portfolio
-        </a>
-
+    <div class="table-wrap">
+    <table>
+        <tr><th>Besoin</th><th>Réponse apportée par le site</th></tr>
+        <tr><td>Présenter l’entreprise</td><td>Section d’introduction et section consacrée à l’entreprise.</td></tr>
+        <tr><td>Présenter les activités</td><td>Section « Nos métiers » avec plusieurs prestations.</td></tr>
+        <tr><td>Rassurer le visiteur</td><td>Présentation des atouts et des étapes du projet.</td></tr>
+        <tr><td>Montrer des réalisations</td><td>Galerie de projets sous forme de cartes.</td></tr>
+        <tr><td>Permettre le contact</td><td>Section contact regroupant les informations disponibles.</td></tr>
+    </table>
     </div>
+</div>
 </section>
 
+<section id="analyse">
+<div class="container">
+    <div class="label">03 · ANALYSE</div>
+    <h2>Analyse et préparation du projet</h2>
+    <p class="text">
+        Une fois le besoin identifié, une première étape consiste à réfléchir à la structure générale
+        du site. Pour un site vitrine, l’utilisateur doit pouvoir comprendre rapidement l’activité de
+        l’entreprise sans devoir parcourir une grande quantité de texte.
+    </p>
+
+    <div class="timeline">
+        <div class="step">
+            <h3>Étape 1 — Identifier les informations essentielles</h3>
+            <p>Regrouper les éléments disponibles : présentation, prestations, réalisations, fonctionnement général et coordonnées.</p>
+        </div>
+        <div class="step">
+            <h3>Étape 2 — Organiser les informations</h3>
+            <p>Classer les contenus par thèmes afin d’éviter une page désordonnée et faciliter la lecture.</p>
+        </div>
+        <div class="step">
+            <h3>Étape 3 — Définir une navigation</h3>
+            <p>Prévoir des liens vers les sections importantes : métiers, contact et autres informations utiles.</p>
+        </div>
+        <div class="step">
+            <h3>Étape 4 — Choisir une direction graphique</h3>
+            <p>Retenir une présentation sobre, professionnelle et adaptée au secteur du bâtiment.</p>
+        </div>
+    </div>
+
+    <h3>Arborescence retenue</h3>
+    <p class="text">
+        La page a été pensée comme une page vitrine composée de plusieurs sections. Cette solution
+        permet de garder une navigation relativement simple tout en présentant une quantité suffisante
+        d’informations.
+    </p>
+    <pre>Accueil
+│
+├── Présentation
+├── Nos métiers
+├── Comment ça se passe
+├── Pourquoi GMT BAT
+├── Quelques chantiers
+├── Questions fréquentes
+├── L'entreprise
+└── Contact</pre>
+
+    <div class="note">
+        Cette organisation reprend les éléments présents dans le site réalisé. Certaines données
+        présentées dans le site peuvent également être des contenus de démonstration ou des informations
+        destinées à illustrer la structure ; les données internes non communicables ne sont pas reproduites.
+    </div>
+</div>
+</section>
+
+<section id="conception">
+<div class="container">
+    <div class="label">04 · CONCEPTION</div>
+    <h2>Conception de l’interface</h2>
+    <p class="text">
+        La conception graphique devait répondre à deux contraintes principales : donner une image
+        professionnelle à l’entreprise et conserver une interface suffisamment simple pour être comprise
+        rapidement. Le choix s’est donc porté sur une mise en page épurée avec beaucoup d’espace, des titres
+        visibles et des blocs de contenu séparés.
+    </p>
+
+    <h3>Choix des couleurs</h3>
+    <p class="text">
+        Le site utilise un fond clair, du texte sombre et une couleur d’accent tirant vers le rouge/orange
+        pour attirer l’attention sur certains éléments. Cette couleur est notamment utilisée pour les
+        boutons et les éléments importants.
+    </p>
+
+    <h3>Organisation de l’en-tête</h3>
+    <p class="text">
+        L’en-tête contient le nom « GMT BAT » ainsi que des liens de navigation. Les liens permettent
+        d’accéder directement aux sections importantes de la page.
+    </p>
+
+    <div class="code-title">Extrait de la navigation HTML</div>
+    <pre>&lt;header&gt;
+  &lt;div class="nav"&gt;
+    &lt;div class="brand"&gt;GMT BAT&lt;/div&gt;
+    &lt;nav class="navlinks"&gt;
+      &lt;a href="#services"&gt;Métiers&lt;/a&gt;
+      &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</pre>
+
+    <h3>Organisation de la page d’accueil</h3>
+    <p class="text">
+        La première partie de la page doit permettre de comprendre immédiatement le domaine d’activité.
+        Le titre, une courte présentation et un bouton d’action sont donc placés en premier.
+    </p>
+
+    <div class="code-title">Extrait de la section principale</div>
+    <pre>&lt;section class="hero"&gt;
+  &lt;div class="wrap"&gt;
+    &lt;p class="tag"&gt;BÂTIMENT &amp; TRAVAUX PUBLICS&lt;/p&gt;
+    &lt;h1&gt;Vos travaux de bâtiment, gérés de A à Z.&lt;/h1&gt;
+    &lt;p class="lede"&gt;Présentation de l'activité de GMT BAT...&lt;/p&gt;
+    &lt;a class="btn" href="#contact"&gt;Demander un devis&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+</div>
+</section>
+
+<section id="developpement">
+<div class="container">
+    <div class="label">05 · DÉVELOPPEMENT</div>
+    <h2>Développement de la structure HTML</h2>
+    <p class="text">
+        Après la préparation de la structure, le développement peut commencer par le HTML. Le rôle du
+        HTML est d’organiser le contenu de la page. Chaque information est placée dans un élément adapté :
+        titres, paragraphes, listes, liens, sections et pied de page.
+    </p>
+    <p class="text">
+        J’ai utilisé des éléments sémantiques tels que <strong>header</strong>, <strong>section</strong>,
+        <strong>nav</strong> et <strong>footer</strong>. Cette organisation rend le code plus lisible et
+        permet de mieux séparer les différentes parties du site.
+    </p>
+
+    <h3>Exemple : la section des métiers</h3>
+    <pre>&lt;section id="services"&gt;
+  &lt;div class="wrap"&gt;
+    &lt;h2 class="section-title"&gt;Nos métiers&lt;/h2&gt;
+
+    &lt;ul class="svc-list"&gt;
+      &lt;li&gt;
+        &lt;div&gt;
+          &lt;h3&gt;Gros œuvre&lt;/h3&gt;
+          &lt;p&gt;Fondations, élévation et structures béton...&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+
+      &lt;li&gt;
+        &lt;div&gt;
+          &lt;h3&gt;Rénovation&lt;/h3&gt;
+          &lt;p&gt;Extension, restructuration et rénovation...&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+
+    <p class="text">
+        Cette structure permet ensuite au CSS de cibler facilement la liste, les titres et les paragraphes.
+        La même logique est appliquée aux autres parties du site.
+    </p>
+
+    <h3>Les sections de contenu</h3>
+    <p class="text">
+        Plusieurs sections ont été utilisées pour construire une présentation progressive : les métiers,
+        les étapes d’un projet, les atouts, les réalisations, les avis, les questions fréquentes,
+        l’entreprise et enfin le contact. Cette progression permet de présenter l’activité avant de
+        terminer par les informations pratiques.
+    </p>
+
+    <div class="grid">
+        <div class="card"><span class="badge">HTML</span><h3>Structure</h3><p>Organisation des contenus et des sections de la page.</p></div>
+        <div class="card"><span class="badge">UX</span><h3>Navigation</h3><p>Accès rapide aux informations importantes grâce aux ancres.</p></div>
+        <div class="card"><span class="badge">Contenu</span><h3>Présentation</h3><p>Informations regroupées pour faciliter la compréhension de l’activité.</p></div>
+        <div class="card"><span class="badge">Maintenance</span><h3>Lisibilité du code</h3><p>Classes et sections nommées pour faciliter les modifications futures.</p></div>
+    </div>
+</div>
+</section>
+
+<section id="css">
+<div class="container">
+    <div class="label">06 · INTÉGRATION</div>
+    <h2>Mise en forme avec CSS</h2>
+    <p class="text">
+        Une fois la structure HTML créée, le CSS permet de transformer une page simple en interface
+        graphique. J’ai notamment travaillé sur les espacements, les tailles de texte, les bordures,
+        les boutons, les cartes et la disposition des éléments.
+    </p>
+
+    <h3>Variables CSS</h3>
+    <p class="text">
+        Les principales couleurs peuvent être regroupées dans des variables CSS. Cela évite de devoir
+        rechercher chaque couleur dans le fichier lorsqu’une modification graphique est nécessaire.
+    </p>
+    <pre>:root{
+  --ink:#1C1E1B;
+  --paper:#F3F1EA;
+  --line:#DDD8CB;
+  --muted:#6B6E64;
+  --rust:#B8501F;
+}</pre>
+
+    <h3>Mise en page avec Grid</h3>
+    <p class="text">
+        Certaines parties du site sont présentées sous forme de colonnes. CSS Grid permet de créer cette
+        organisation sans avoir à positionner manuellement chaque élément.
+    </p>
+    <pre>.points{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.realisations{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}</pre>
+
+    <h3>Création d’un bouton</h3>
+    <pre>.btn{
+  display:inline-block;
+  background:var(--rust);
+  color:#fff;
+  padding:13px 24px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:600;
+}</pre>
+
+    <p class="text">
+        L’intérêt de cette méthode est de pouvoir réutiliser les mêmes styles sur plusieurs éléments.
+        Le résultat est plus cohérent et le fichier CSS reste plus facile à maintenir.
+    </p>
+</div>
+</section>
+
+<section id="responsive">
+<div class="container">
+    <div class="label">07 · RESPONSIVE</div>
+    <h2>Adaptation aux écrans mobiles</h2>
+    <p class="text">
+        Un site professionnel doit pouvoir être consulté depuis un ordinateur mais aussi depuis un
+        smartphone ou une tablette. Une partie importante du développement consiste donc à vérifier que
+        les éléments ne débordent pas et que les colonnes restent lisibles sur un petit écran.
+    </p>
+
+    <h3>Principe utilisé</h3>
+    <p class="text">
+        Une media query permet de modifier la disposition lorsque la largeur de l’écran devient plus petite.
+        Les éléments disposés en trois colonnes peuvent alors être affichés les uns sous les autres.
+    </p>
+
+    <pre>@media(max-width:640px){
+  .points{grid-template-columns:1fr;}
+  .realisations{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr;}
+  .quotes{grid-template-columns:1fr;}
+}</pre>
+
+    <p class="text">
+        Cette adaptation évite d’avoir des cartes trop étroites sur téléphone. Elle permet également de
+        conserver une lecture verticale naturelle, adaptée à la manière dont les utilisateurs consultent
+        généralement un site depuis un smartphone.
+    </p>
+
+    <div class="note">
+        <strong>Tests à effectuer :</strong> vérifier l’affichage sur une grande largeur, une largeur
+        intermédiaire et une largeur mobile ; vérifier également la navigation, les boutons et l’absence
+        de débordement horizontal.
+    </div>
+</div>
+</section>
+
+<section id="contenu">
+<div class="container">
+    <div class="label">08 · CONTENU</div>
+    <h2>Intégration des différentes sections</h2>
+
+    <h3>Les métiers</h3>
+    <p class="text">
+        Une section dédiée aux métiers permet de présenter les principales prestations sous une forme
+        courte. Dans le site, les exemples comprennent notamment le gros œuvre, la rénovation, les travaux
+        publics et le terrassement.
+    </p>
+
+    <h3>Le déroulement d’un projet</h3>
+    <p class="text">
+        Une autre partie explique le fonctionnement général sous forme de trois étapes : visite,
+        chiffrage puis réalisation. Ce choix permet de transformer une information potentiellement longue
+        en une présentation visuelle facile à parcourir.
+    </p>
+
+    <h3>Les réalisations</h3>
+    <p class="text">
+        Une galerie de cartes est utilisée pour présenter plusieurs exemples de chantiers. Les cartes
+        permettent de garder une présentation régulière et de préparer facilement l’intégration de photos
+        lorsque celles-ci sont disponibles et autorisées.
+    </p>
+
+    <h3>Questions fréquentes</h3>
+    <p class="text">
+        Une FAQ permet de répondre à des questions simples avant même que le visiteur contacte l’entreprise.
+        Elle constitue aussi un moyen d’ajouter de l’information sans alourdir la page principale.
+    </p>
+
+    <h3>Contact</h3>
+    <p class="text">
+        La dernière partie regroupe les informations de contact disponibles. Les coordonnées sensibles ou
+        non destinées à être diffusées dans le cadre scolaire ne sont pas reproduites dans ce rapport.
+    </p>
+
+    <div class="note">
+        <strong>Confidentialité :</strong> les contenus précis liés aux clients, aux projets, aux tarifs,
+        aux documents internes ou aux méthodes commerciales ne sont volontairement pas détaillés. Cette
+        limitation explique certains passages généraux du rapport.
+    </div>
+</div>
+</section>
+
+<section id="tests">
+<div class="container">
+    <div class="label">09 · VALIDATION</div>
+    <h2>Tests, corrections et validation</h2>
+    <p class="text">
+        Une fois les différentes sections intégrées, une phase de tests est nécessaire. L’objectif est
+        de vérifier que le résultat correspond au besoin et qu’aucun problème évident n’empêche l’utilisateur
+        de naviguer sur le site.
+    </p>
+
+    <div class="table-wrap">
+    <table>
+        <tr><th>Test</th><th>Point vérifié</th><th>Correction possible</th></tr>
+        <tr><td>Navigation</td><td>Les liens dirigent vers les bonnes sections.</td><td>Modifier les attributs href et les identifiants.</td></tr>
+        <tr><td>Affichage desktop</td><td>Les colonnes et espacements sont corrects.</td><td>Ajuster Grid, largeur et marges.</td></tr>
+        <tr><td>Affichage mobile</td><td>Les éléments restent lisibles.</td><td>Modifier les media queries.</td></tr>
+        <tr><td>Texte</td><td>Les informations sont visibles et correctement hiérarchisées.</td><td>Modifier tailles, marges ou longueur des contenus.</td></tr>
+        <tr><td>Boutons</td><td>Les actions sont compréhensibles et accessibles.</td><td>Modifier le lien, le texte ou le style.</td></tr>
+        <tr><td>Code</td><td>La structure reste compréhensible.</td><td>Réorganiser les classes et sections.</td></tr>
+    </table>
+    </div>
+
+    <h3>Vérification du code</h3>
+    <p class="text">
+        La vérification ne concerne pas uniquement le rendu visuel. Il faut aussi contrôler les balises,
+        les fermetures de sections, les liens, les classes utilisées et les règles CSS. Une erreur de
+        structure peut avoir des conséquences sur l’affichage d’une partie entière de la page.
+    </p>
+
+    <h3>Corrections itératives</h3>
+    <p class="text">
+        Le développement d’un site se fait rarement en une seule fois. Une première version permet de
+        visualiser le résultat, puis des ajustements sont réalisés. Les espacements, les tailles, les
+        textes ou la disposition peuvent être modifiés plusieurs fois avant d’obtenir une version satisfaisante.
+    </p>
+</div>
+</section>
+
+<section id="difficultes">
+<div class="container">
+    <div class="label">10 · RETOUR D’EXPÉRIENCE</div>
+    <h2>Difficultés rencontrées et solutions</h2>
+
+    <div class="grid">
+        <div class="card">
+            <i class="fa-solid fa-sitemap"></i>
+            <h3>Organiser les informations</h3>
+            <p>Le principal enjeu était de ne pas simplement accumuler du contenu. Les informations devaient être regroupées et hiérarchisées.</p>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-palette"></i>
+            <h3>Créer une identité visuelle</h3>
+            <p>Le design devait rester professionnel sans multiplier les effets graphiques inutiles.</p>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-mobile-screen"></i>
+            <h3>Gérer le responsive</h3>
+            <p>Les colonnes devaient être transformées en une présentation verticale lorsque l’écran devient plus petit.</p>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-bug"></i>
+            <h3>Corriger progressivement</h3>
+            <p>Les tests permettent d’identifier les problèmes d’affichage ou de navigation et de les corriger avant validation.</p>
+        </div>
+    </div>
+
+    <h3>Ce que cette étape m’a appris</h3>
+    <p class="text">
+        J’ai compris qu’un projet web ne consiste pas seulement à écrire du code. Une grande partie du
+        travail concerne la compréhension du besoin, l’organisation du contenu, la présentation et les
+        vérifications. Les choix techniques doivent servir l’objectif du site et non l’inverse.
+    </p>
+
+    <div class="quote">
+        « Un site vitrine efficace doit avant tout permettre au visiteur de comprendre rapidement qui est
+        l’entreprise, ce qu’elle propose et comment la contacter. »
+    </div>
+</div>
+</section>
+
+<section id="competences">
+<div class="container">
+    <div class="label">11 · BTS SIO</div>
+    <h2>Compétences mobilisées</h2>
+    <p class="text">
+        Ce projet m’a permis de mettre en pratique plusieurs compétences liées au développement web et
+        plus largement à la démarche de projet étudiée en BTS SIO SLAM.
+    </p>
+
+    <div class="techs">
+        <span class="tech">HTML5</span>
+        <span class="tech">CSS3</span>
+        <span class="tech">Responsive Design</span>
+        <span class="tech">Organisation du contenu</span>
+        <span class="tech">Ergonomie</span>
+        <span class="tech">Tests</span>
+        <span class="tech">Correction</span>
+        <span class="tech">Documentation</span>
+    </div>
+
+    <div class="table-wrap">
+    <table>
+        <tr><th>Compétence</th><th>Application pendant le projet</th></tr>
+        <tr><td>Analyser un besoin</td><td>Identifier les informations nécessaires à la présentation de l’entreprise.</td></tr>
+        <tr><td>Concevoir une solution</td><td>Définir l’organisation des sections et la navigation.</td></tr>
+        <tr><td>Développer</td><td>Créer la structure HTML et les règles CSS.</td></tr>
+        <tr><td>Adapter</td><td>Prévoir un affichage responsive pour les différents écrans.</td></tr>
+        <tr><td>Tester</td><td>Vérifier la navigation et le rendu sur différentes tailles.</td></tr>
+        <tr><td>Documenter</td><td>Expliquer les choix et les différentes étapes du projet.</td></tr>
+    </table>
+    </div>
+</div>
+</section>
+
+<section id="bilan">
+<div class="container">
+    <div class="label">12 · BILAN</div>
+    <h2>Bilan personnel et professionnel</h2>
+    <p class="text">
+        Ce stage chez GMT BAT m’a permis de découvrir plus concrètement le fonctionnement d’un projet
+        informatique dans un environnement professionnel. La création d’un site vitrine m’a donné
+        l’occasion de travailler sur un projet complet, depuis la réflexion sur les besoins jusqu’aux
+        tests et aux corrections.
+    </p>
+    <p class="text">
+        J’ai également compris l’importance de la communication et de l’adaptation. Les choix de
+        développement ne peuvent pas être faits uniquement en fonction de ce que le développeur sait
+        faire : ils doivent répondre au besoin du projet et rester compréhensibles pour les personnes
+        qui utiliseront ou modifieront le site.
+    </p>
+    <p class="text">
+        Sur le plan technique, cette expérience m’a permis de renforcer mes bases en HTML et CSS, notamment
+        la structuration d’une page, la création d’une interface cohérente et l’utilisation du responsive
+        design. Elle m’a aussi permis de mieux comprendre l’importance des tests et des corrections
+        successives.
+    </p>
+    <p class="text">
+        Enfin, certaines informations concernant l’entreprise n’ayant pas vocation à être rendues publiques,
+        j’ai volontairement limité les détails relatifs à son fonctionnement interne. Le rapport se
+        concentre donc principalement sur la démarche technique et pédagogique du projet web.
+    </p>
+
+    <h3>Conclusion</h3>
+    <p class="text">
+        Cette première expérience professionnelle constitue une étape importante dans ma formation en BTS
+        SIO SLAM. Elle m’a permis de passer d’exercices scolaires à une réalisation ayant un objectif
+        concret : présenter une entreprise et ses services à travers un site web. Les méthodes utilisées
+        pourront être réinvesties dans mes futurs projets scolaires et professionnels.
+    </p>
+
+    <a href="../index.html" class="back">
+        <i class="fa-solid fa-arrow-left"></i>
+        Retour au portfolio
+    </a>
+</div>
+</section>
+
+</main>
 
 <footer>
-    Portfolio Aslam Sani
+    <div class="container">
+        Rapport de stage — GMT BAT · BTS SIO SLAM · 2026
+    </div>
 </footer>
-
 </body>
 </html>
